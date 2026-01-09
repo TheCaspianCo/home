@@ -1,0 +1,1556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Form Editor - The Caspian Co.</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 10px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 5px;
+        }
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2em;
+        margin-bottom: 5px;
+      }
+
+      .header p {
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 15px 10px;
+        }
+
+        .header h1 {
+          font-size: 1.3em;
+        }
+
+        .header p {
+          font-size: 0.8em;
+        }
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      @media (max-width: 1200px) {
+        .main-content {
+          grid-template-columns: 2fr 1fr;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          padding: 15px;
+          gap: 15px;
+        }
+
+        .header h1 {
+          font-size: 1.5em;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          padding: 10px;
+          gap: 12px;
+        }
+      }
+
+      .left-panel,
+      .right-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        min-width: 0;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .left-panel,
+        .right-panel {
+          gap: 12px;
+        }
+      }
+
+      .config-section {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #e9ecef;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .config-section {
+          padding: 12px;
+        }
+      }
+
+      .config-section h3 {
+        margin-bottom: 15px;
+        color: #495057;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1em;
+        flex-wrap: wrap;
+      }
+
+      .config-row {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .config-row {
+          grid-template-columns: 80px 1fr;
+          gap: 5px;
+        }
+
+        .config-row button {
+          grid-column: 2;
+          margin-top: 5px;
+        }
+      }
+
+      .config-row label {
+        font-weight: 600;
+        color: #495057;
+        font-size: 13px;
+      }
+
+      .config-row input {
+        padding: 8px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        font-size: 13px;
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 768px) {
+        .config-row input {
+          padding: 6px;
+          font-size: 12px;
+        }
+      }
+
+      .product-form {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid #e9ecef;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .product-form {
+          padding: 15px;
+        }
+      }
+
+      .product-form h3 {
+        margin-bottom: 15px;
+        color: #495057;
+        font-size: 1.1em;
+      }
+
+      .form-group {
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .form-group {
+          margin-bottom: 10px;
+        }
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #495057;
+        font-size: 13px;
+      }
+
+      @media (max-width: 768px) {
+        .form-group label {
+          font-size: 12px;
+          margin-bottom: 4px;
+        }
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 768px) {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+          padding: 8px;
+          font-size: 13px;
+        }
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .form-group textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .id-group {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .id-group input {
+        flex: 1;
+        min-width: 0;
+      }
+
+      @media (max-width: 768px) {
+        .id-group {
+          gap: 6px;
+        }
+      }
+
+      .array-input {
+        border: 2px dashed #ced4da;
+        padding: 12px;
+        border-radius: 5px;
+        background: white;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .array-input {
+          padding: 10px;
+        }
+      }
+
+      .array-item {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+        align-items: center;
+      }
+
+      .array-item input {
+        flex: 1;
+        padding: 8px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        font-size: 13px;
+        box-sizing: border-box;
+        min-width: 0;
+      }
+
+      @media (max-width: 768px) {
+        .array-item input {
+          padding: 6px;
+          font-size: 12px;
+        }
+      }
+
+      .image-preview {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 2px solid #e9ecef;
+        background: #f8f9fa;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+
+      .image-preview.loading {
+        background: #e9ecef
+          url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3E...%3C/text%3E%3C/svg%3E')
+          center no-repeat;
+      }
+
+      .image-preview.error {
+        background: #f8d7da
+          url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23721c24" font-size="20"%3E✕%3C/text%3E%3C/svg%3E')
+          center no-repeat;
+      }
+
+      .btn-remove {
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        min-width: 35px;
+      }
+
+      .btn-add {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        margin-top: 5px;
+        width: 100%;
+      }
+
+      .btn-add:hover,
+      .btn-remove:hover {
+        opacity: 0.9;
+      }
+
+      .platform-inputs {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .platform-inputs {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+      }
+
+      .btn-danger {
+        background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+      }
+
+      .btn-small {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+
+      .btn-clear {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+
+      .btn-generate {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .form-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .form-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .products-list {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #e9ecef;
+        max-height: 700px;
+        overflow-y: auto;
+      }
+
+      @media (max-width: 768px) {
+        .products-list {
+          padding: 12px;
+          max-height: 500px;
+        }
+      }
+
+      .list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background: #f8f9fa;
+        padding-bottom: 10px;
+        z-index: 10;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .list-header h3 {
+        margin: 0;
+        font-size: 1em;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .search-box:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .product-card {
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 2px solid #e9ecef;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .product-card:hover {
+        border-color: #667eea;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-card.selected {
+        border-color: #667eea;
+        background: #f0f4ff;
+      }
+
+      .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px;
+        background: #e9ecef;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 768px) {
+        .product-image {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      .product-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .product-card h4 {
+        color: #333;
+        margin-bottom: 5px;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .product-card p {
+        color: #666;
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+
+      .product-badges {
+        display: flex;
+        gap: 5px;
+        margin-top: 6px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .badge-active {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      .badge-inactive {
+        background: #f8d7da;
+        color: #721c24;
+      }
+
+      .badge-featured {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      #status {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 500;
+        display: none;
+        animation: slideIn 0.3s ease-out;
+        font-size: 13px;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .success {
+        background: #d4edda;
+        color: #155724;
+        border: 2px solid #c3e6cb;
+      }
+
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 2px solid #f5c6cb;
+      }
+
+      .info {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 2px solid #bee5eb;
+      }
+
+      .warning {
+        background: #fff3cd;
+        color: #856404;
+        border: 2px solid #ffeaa7;
+      }
+
+      .product-count {
+        background: #fff3cd;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        color: #856404;
+        font-weight: 600;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .no-products {
+        text-align: center;
+        color: #999;
+        padding: 40px 20px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🛍️ Product Form Editor</h1>
+        <p>Add and edit products with easy-to-use forms</p>
+      </div>
+
+      <div class="main-content">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+          <!-- JSON File Configuration -->
+          <div class="config-section">
+            <h3>📄 JSON File Configuration</h3>
+
+            <div class="config-row">
+              <label>JSON File:</label>
+              <input
+                type="text"
+                id="jsonFilename"
+                placeholder="../data/products.json"
+                value="../data/products.json"
+                readonly
+              />
+              <button class="btn-small btn-secondary" disabled>Locked</button>
+            </div>
+          </div>
+
+          <!-- Product Form -->
+          <div class="product-form">
+            <h3>📝 Product Details</h3>
+
+            <div class="form-group">
+              <label>Product ID *</label>
+              <div class="id-group">
+                <input
+                  type="text"
+                  id="productId"
+                  placeholder="hoodie_a1b2c3"
+                  readonly
+                />
+                <button class="btn-generate" onclick="generateProductId()">
+                  🔄 New ID
+                </button>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Category *</label>
+                <select
+                  id="category"
+                  onchange="updateSubCategory(); generateProductId();"
+                >
+                  <option value="">Select Category</option>
+                  <option value="hoodies">Hoodies</option>
+                  <option value="tshirts">T-Shirts</option>
+                  <option value="shirts">Shirts</option>
+                  <option value="jeans">Jeans</option>
+                  <option value="jackets">Jackets</option>
+                  <option value="shoes">Shoes</option>
+                  <option value="accessories">Accessories</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Sub Category *</label>
+                <select id="subCategory">
+                  <option value="">Select Category First</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Product Name *</label>
+              <input
+                type="text"
+                id="productName"
+                placeholder="Heavyweight Cotton Hoodie"
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Price *</label>
+                <input type="text" id="price" placeholder="₹1,499" value="₹" />
+              </div>
+              <div class="form-group">
+                <label>Rating (0-5) *</label>
+                <input
+                  type="number"
+                  id="rating"
+                  min="0"
+                  max="5"
+                  step="0.1"
+                  placeholder="4.5"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Images (External URLs) *</label>
+              <div class="array-input" id="imagesContainer">
+                <!-- Images will be added here -->
+              </div>
+              <button class="btn-add" onclick="addImage()">
+                + Add Image URL
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label>Highlights (Short Points) *</label>
+              <div class="array-input" id="highlightsContainer">
+                <!-- Highlights will be added here -->
+              </div>
+              <button class="btn-add" onclick="addHighlight()">
+                + Add Highlight
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label>Tags (comma-separated)</label>
+              <input
+                type="text"
+                id="tags"
+                placeholder="winter, oversized, men"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Description *</label>
+              <textarea
+                id="description"
+                placeholder="Premium heavyweight hoodie designed for winter comfort..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Platform *</label>
+              <div class="platform-inputs">
+                <select id="platformType">
+                  <option value="amazon">Amazon</option>
+                  <option value="flipkart">Flipkart</option>
+                  <option value="myntra">Myntra</option>
+                  <option value="ajio">Ajio</option>
+                  <option value="other">Other</option>
+                </select>
+                <input
+                  type="text"
+                  id="platformLink"
+                  placeholder="https://amzn.to/example"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Featured</label>
+                <select id="featured">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Active</label>
+                <select id="active">
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Added Date *</label>
+                <input type="date" id="addedDate" />
+              </div>
+              <div class="form-group">
+                <label>Publish At *</label>
+                <input type="datetime-local" id="publishAt" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-success" onclick="addProduct()">✓ Add</button>
+              <button class="btn-primary" onclick="updateProduct()">
+                📝 Update
+              </button>
+              <button class="btn-danger" onclick="deleteProduct()">
+                🗑️ Delete
+              </button>
+              <button class="btn-secondary" onclick="clearForm()">
+                🔄 Clear
+              </button>
+            </div>
+          </div>
+
+          <div id="status"></div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+          <!-- Products List -->
+          <div class="products-list">
+            <div class="list-header">
+              <h3>📦 Products List</h3>
+              <button class="btn-small btn-primary" onclick="loadProducts()">
+                🔄 Reload
+              </button>
+            </div>
+
+            <input
+              type="text"
+              id="searchBox"
+              class="search-box"
+              placeholder="🔍 Search products..."
+              oninput="searchProducts()"
+            />
+
+            <div class="product-count" id="productCount">
+              No products loaded
+            </div>
+
+            <div id="productsList">
+              <!-- Products will be listed here -->
+            </div>
+          </div>
+
+          <!-- JSON Output -->
+          <div class="config-section">
+            <h3>📋 JSON Output</h3>
+
+            <div
+              style="
+                background: #1e1e1e;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                max-height: 400px;
+                overflow-y: auto;
+              "
+            >
+              <pre
+                id="jsonOutput"
+                style="
+                  color: #d4d4d4;
+                  font-family: &quot;Courier New&quot;, monospace;
+                  font-size: 12px;
+                  margin: 0;
+                  white-space: pre-wrap;
+                  word-wrap: break-word;
+                "
+              >
+No products to display</pre
+              >
+            </div>
+
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px"
+            >
+              <button
+                class="btn-primary"
+                onclick="updateJsonOutput()"
+                style="width: 100%"
+              >
+                🔄 Update JSON
+              </button>
+              <button
+                class="btn-success"
+                onclick="copyJsonCode()"
+                style="width: 100%"
+              >
+                📋 Copy JSON
+              </button>
+            </div>
+
+            <p style="margin-top: 10px; font-size: 12px; color: #666">
+              Click "Update JSON" to generate current products data
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ⚠️ HARDCODED JSON FILE PATH ⚠️
+      const DEFAULT_JSON_FILENAME = "/data/products.json";
+
+      // ⚠️ SUB CATEGORIES MAPPING - Add your custom sub categories here ⚠️
+      const SUB_CATEGORIES = {
+        hoodies: [
+          "Pullover Hoodies",
+          "Zip Hoodies",
+          "Oversized Hoodies",
+          "Graphic Hoodies",
+          "Plain Hoodies",
+        ],
+        tshirts: [
+          "Graphic Tees",
+          "Plain Tees",
+          "Polo T-Shirts",
+          "V-Neck Tees",
+          "Round Neck Tees",
+        ],
+        jeans: [
+          "Slim Fit Jeans",
+          "Regular Fit Jeans",
+          "Skinny Jeans",
+          "Bootcut Jeans",
+          "Straight Fit Jeans",
+        ],
+        jackets: [
+          "Bomber Jackets",
+          "Denim Jackets",
+          "Leather Jackets",
+          "Winter Jackets",
+          "Sports Jackets",
+        ],
+        shirts: [
+          "Checked Shirts",
+          "Solid Shirts",
+          "Printed Shirts",
+          "Striped Shirts",
+          "Denim Shirts",
+        ],
+        shoes: [
+          "Sneakers",
+          "Formal Shoes",
+          "Casual Shoes",
+          "Sports Shoes",
+          "Loafers",
+        ],
+        accessories: ["Bags", "Belts", "Watches", "Sunglasses", "Caps"],
+      };
+
+      let config = {
+        jsonFilename: DEFAULT_JSON_FILENAME,
+      };
+
+      let products = [];
+      let filteredProducts = [];
+      let selectedProductIndex = -1;
+
+      window.onload = function () {
+        loadProducts();
+        setDefaultDates();
+        generateProductId();
+        updateJsonOutput();
+      };
+
+      function generateProductId() {
+        const category = document.getElementById("category").value;
+        if (!category) {
+          document.getElementById("productId").value = "";
+          return;
+        }
+
+        const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let randomStr = "";
+        for (let i = 0; i < 6; i++) {
+          randomStr += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+
+        document.getElementById("productId").value = `${category}_${randomStr}`;
+      }
+
+      function updateSubCategory() {
+        const category = document.getElementById("category").value;
+        const subCategorySelect = document.getElementById("subCategory");
+
+        subCategorySelect.innerHTML =
+          '<option value="">Select Sub Category</option>';
+
+        if (category && SUB_CATEGORIES[category]) {
+          SUB_CATEGORIES[category].forEach((subCat) => {
+            const option = document.createElement("option");
+            option.value = subCat;
+            option.textContent = subCat;
+            subCategorySelect.appendChild(option);
+          });
+          subCategorySelect.selectedIndex = 0;
+        }
+      }
+
+      async function loadProducts() {
+        try {
+          showStatus("Loading products...", "info");
+
+          const response = await fetch(config.jsonFilename);
+
+          if (!response.ok) {
+            throw new Error(`Failed to load: ${response.status}`);
+          }
+
+          products = await response.json();
+
+          // Sort products: recently added first (by added_date, then by publish_at)
+          products.sort((a, b) => {
+            const dateA = new Date(
+              a.added_date +
+                "T" +
+                (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
+            );
+            const dateB = new Date(
+              b.added_date +
+                "T" +
+                (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
+            );
+            return dateB - dateA; // Newest first
+          });
+
+          filteredProducts = [...products];
+          renderProductsList();
+          updateProductCount();
+          updateJsonOutput();
+          showStatus(`✓ Loaded ${products.length} product(s)`, "success");
+        } catch (error) {
+          showStatus(`✗ Error: ${error.message}`, "error");
+          products = [];
+          filteredProducts = [];
+          renderProductsList();
+          updateJsonOutput();
+        }
+      }
+
+      function searchProducts() {
+        const searchTerm = document
+          .getElementById("searchBox")
+          .value.toLowerCase();
+
+        if (!searchTerm) {
+          filteredProducts = [...products];
+        } else {
+          filteredProducts = products.filter(
+            (product) =>
+              product.name.toLowerCase().includes(searchTerm) ||
+              product.id.toLowerCase().includes(searchTerm) ||
+              product.category.toLowerCase().includes(searchTerm) ||
+              product.description.toLowerCase().includes(searchTerm),
+          );
+        }
+
+        renderProductsList();
+      }
+
+      function renderProductsList() {
+        const container = document.getElementById("productsList");
+
+        if (filteredProducts.length === 0) {
+          container.innerHTML =
+            '<div class="no-products">No products found</div>';
+          return;
+        }
+
+        container.innerHTML = filteredProducts
+          .map((product) => {
+            const actualIndex = products.indexOf(product);
+            const firstImage =
+              product.images && product.images[0] ? product.images[0] : "";
+
+            return `
+        <div class="product-card ${selectedProductIndex === actualIndex ? "selected" : ""}" onclick="selectProduct(${actualIndex})">
+          ${firstImage ? `<img src="${firstImage}" alt="${product.name}" class="product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect fill=\\'%23e9ecef\\' width=\\'80\\' height=\\'80\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' fill=\\'%23999\\' font-size=\\'12\\'%3ENo Image%3C/text%3E%3C/svg%3E'">` : '<div class="product-image"></div>'}
+          <div class="product-info">
+            <h4>${product.name}</h4>
+            <p><strong>ID:</strong> ${product.id}</p>
+            <p><strong>Price:</strong> ${product.price} | <strong>Rating:</strong> ${product.rating}</p>
+            <div class="product-badges">
+              <span class="badge ${product.active === 1 ? "badge-active" : "badge-inactive"}">
+                ${product.active === 1 ? "Active" : "Inactive"}
+              </span>
+              ${product.featured === 1 ? '<span class="badge badge-featured">Featured</span>' : ""}
+            </div>
+          </div>
+        </div>
+      `;
+          })
+          .join("");
+      }
+
+      function selectProduct(index) {
+        selectedProductIndex = index;
+        const product = products[index];
+
+        document.getElementById("productId").value = product.id;
+        document.getElementById("productName").value = product.name;
+        document.getElementById("category").value = product.category;
+        updateSubCategory();
+        document.getElementById("subCategory").value = product.sub_category;
+        document.getElementById("price").value = product.price;
+        document.getElementById("rating").value = product.rating;
+        document.getElementById("description").value = product.description;
+        document.getElementById("tags").value = product.tags.join(", ");
+        document.getElementById("platformType").value = product.platform.type;
+        document.getElementById("platformLink").value = product.platform.link;
+        document.getElementById("featured").value = product.featured;
+        document.getElementById("active").value = product.active;
+        document.getElementById("addedDate").value = product.added_date;
+
+        if (product.publish_at) {
+          const dt = new Date(product.publish_at);
+          const formatted = dt.toISOString().slice(0, 16);
+          document.getElementById("publishAt").value = formatted;
+        }
+
+        const imagesContainer = document.getElementById("imagesContainer");
+        imagesContainer.innerHTML = "";
+        product.images.forEach((img) => {
+          addImage(img);
+        });
+
+        const highlightsContainer = document.getElementById(
+          "highlightsContainer",
+        );
+        highlightsContainer.innerHTML = "";
+        product.highlights.forEach((highlight) => {
+          addHighlight(highlight);
+        });
+
+        renderProductsList();
+        showStatus(`Selected: ${product.name}`, "info");
+
+        // Scroll to top on mobile
+        if (window.innerWidth <= 1024) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      function addImage(value = "") {
+        const container = document.getElementById("imagesContainer");
+        const div = document.createElement("div");
+        div.className = "array-item";
+
+        const uniqueId =
+          "img_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+
+        div.innerHTML = `
+        <img class="image-preview ${value ? "loading" : ""}" id="${uniqueId}" src="${value || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E'}" 
+             onerror="this.className='image-preview error'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22%3E%3Crect fill=%22%23f8d7da%22 width=%2250%22 height=%2250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23721c24%22 font-size=%2220%22%3E✕%3C/text%3E%3C/svg%3E';"
+             onload="this.className='image-preview';"
+             onclick="openImagePreview('${uniqueId}')"
+             title="Click to preview full image"
+             alt="Image preview">
+        <input type="text" placeholder="https://example.com/image.jpg" value="${value}" oninput="updateImagePreview('${uniqueId}', this.value)">
+        <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
+      `;
+        container.appendChild(div);
+      }
+
+      function updateImagePreview(imgId, url) {
+        const img = document.getElementById(imgId);
+        if (!img) return;
+
+        if (!url.trim()) {
+          img.className = "image-preview";
+          img.src =
+            'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E';
+          return;
+        }
+
+        img.className = "image-preview loading";
+        img.src = url;
+      }
+
+      function openImagePreview(imgId) {
+        const img = document.getElementById(imgId);
+        if (!img || !img.src || img.className.includes("error")) return;
+
+        const modal = document.createElement("div");
+        modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: pointer;
+      `;
+
+        const previewImg = document.createElement("img");
+        previewImg.src = img.src;
+        previewImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+      `;
+
+        modal.appendChild(previewImg);
+        modal.onclick = () => modal.remove();
+
+        document.body.appendChild(modal);
+      }
+
+      function addHighlight(value = "") {
+        const container = document.getElementById("highlightsContainer");
+        const div = document.createElement("div");
+        div.className = "array-item";
+        div.innerHTML = `
+        <input type="text" placeholder="220 GSM cotton" value="${value}">
+        <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
+      `;
+        container.appendChild(div);
+      }
+
+      function getFormData() {
+        const images = Array.from(
+          document.querySelectorAll("#imagesContainer input"),
+        )
+          .map((input) => input.value.trim())
+          .filter((val) => val);
+
+        const highlights = Array.from(
+          document.querySelectorAll("#highlightsContainer input"),
+        )
+          .map((input) => input.value.trim())
+          .filter((val) => val);
+
+        const tags = document
+          .getElementById("tags")
+          .value.split(",")
+          .map((tag) => tag.trim())
+          .filter((tag) => tag);
+
+        const addedDate = document.getElementById("addedDate").value;
+        const publishAtValue = document.getElementById("publishAt").value;
+        const publishAt = publishAtValue
+          ? new Date(publishAtValue).toISOString().slice(0, 19)
+          : "";
+
+        return {
+          id: document.getElementById("productId").value.trim(),
+          name: document.getElementById("productName").value.trim(),
+          category: document.getElementById("category").value,
+          sub_category: document.getElementById("subCategory").value.trim(),
+          price: document.getElementById("price").value.trim(),
+          images,
+          highlights,
+          description: document.getElementById("description").value.trim(),
+          rating: parseFloat(document.getElementById("rating").value) || 0,
+          tags,
+          platform: {
+            type: document.getElementById("platformType").value,
+            link: document.getElementById("platformLink").value.trim(),
+          },
+          featured: parseInt(document.getElementById("featured").value),
+          active: parseInt(document.getElementById("active").value),
+          added_date: addedDate,
+          publish_at: publishAt,
+        };
+      }
+
+      function validateProduct(product) {
+        if (!product.id) return "Product ID is required";
+        if (!product.name) return "Product name is required";
+        if (!product.category) return "Category is required";
+        if (!product.sub_category) return "Sub category is required";
+        if (!product.price) return "Price is required";
+        if (product.images.length === 0)
+          return "At least one image URL is required";
+        if (product.highlights.length === 0)
+          return "At least one highlight is required";
+        if (!product.description) return "Description is required";
+        if (product.rating < 0 || product.rating > 5)
+          return "Rating must be between 0 and 5";
+        if (!product.platform.link) return "Platform link is required";
+        if (!product.added_date) return "Added date is required";
+        if (!product.publish_at) return "Publish date/time is required";
+        return null;
+      }
+
+      function addProduct() {
+        const product = getFormData();
+        const error = validateProduct(product);
+
+        if (error) {
+          showStatus(`✗ ${error}`, "error");
+          return;
+        }
+
+        if (products.some((p) => p.id === product.id)) {
+          showStatus(`✗ Product ID "${product.id}" already exists`, "error");
+          return;
+        }
+
+        products.push(product);
+
+        // Sort products: recently added first
+        products.sort((a, b) => {
+          const dateA = new Date(
+            a.added_date +
+              "T" +
+              (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
+          );
+          const dateB = new Date(
+            b.added_date +
+              "T" +
+              (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
+          );
+          return dateB - dateA;
+        });
+
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        clearForm();
+        updateJsonOutput();
+        showStatus(`✓ Product "${product.name}" added!`, "success");
+      }
+
+      function updateProduct() {
+        if (selectedProductIndex === -1) {
+          showStatus("⚠ Please select a product to update", "warning");
+          return;
+        }
+
+        const product = getFormData();
+        const error = validateProduct(product);
+
+        if (error) {
+          showStatus(`✗ ${error}`, "error");
+          return;
+        }
+
+        if (
+          products.some(
+            (p, idx) => p.id === product.id && idx !== selectedProductIndex,
+          )
+        ) {
+          showStatus(`✗ Product ID "${product.id}" already exists`, "error");
+          return;
+        }
+
+        products[selectedProductIndex] = product;
+
+        // Sort products: recently added first
+        products.sort((a, b) => {
+          const dateA = new Date(
+            a.added_date +
+              "T" +
+              (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
+          );
+          const dateB = new Date(
+            b.added_date +
+              "T" +
+              (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
+          );
+          return dateB - dateA;
+        });
+
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        updateJsonOutput();
+        showStatus(`✓ Product "${product.name}" updated!`, "success");
+      }
+
+      function deleteProduct() {
+        if (selectedProductIndex === -1) {
+          showStatus("⚠ Please select a product to delete", "warning");
+          return;
+        }
+
+        const product = products[selectedProductIndex];
+
+        if (!confirm(`Delete "${product.name}"?`)) {
+          return;
+        }
+
+        products.splice(selectedProductIndex, 1);
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        clearForm();
+        updateJsonOutput();
+        showStatus(`✓ Product deleted!`, "success");
+      }
+
+      function clearForm() {
+        selectedProductIndex = -1;
+        document.getElementById("productId").value = "";
+        document.getElementById("productName").value = "";
+        document.getElementById("category").value = "";
+        document.getElementById("subCategory").innerHTML =
+          '<option value="">Select Category First</option>';
+        document.getElementById("price").value = "₹";
+        document.getElementById("rating").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("tags").value = "";
+        document.getElementById("platformType").value = "amazon";
+        document.getElementById("platformLink").value = "";
+        document.getElementById("featured").value = "0";
+        document.getElementById("active").value = "1";
+
+        document.getElementById("imagesContainer").innerHTML = "";
+        document.getElementById("highlightsContainer").innerHTML = "";
+
+        setDefaultDates();
+        generateProductId();
+        renderProductsList();
+      }
+
+      function setDefaultDates() {
+        const today = new Date().toISOString().split("T")[0];
+        const now = new Date().toISOString().slice(0, 16);
+        document.getElementById("addedDate").value = today;
+        document.getElementById("publishAt").value = now;
+      }
+
+      function updateProductCount() {
+        const count = products.length;
+        const active = products.filter((p) => p.active === 1).length;
+        const inactive = products.filter((p) => p.active === 0).length;
+        const featured = products.filter((p) => p.featured === 1).length;
+
+        document.getElementById("productCount").innerHTML = `
+        📦 Total: <strong>${count}</strong> | 
+        ✓ Active: <strong>${active}</strong> | 
+        ✗ Inactive: <strong>${inactive}</strong> | 
+        ⭐ Featured: <strong>${featured}</strong>
+      `;
+      }
+
+      function updateJsonOutput() {
+        const jsonOutput = document.getElementById("jsonOutput");
+
+        if (products.length === 0) {
+          jsonOutput.textContent = "No products to display";
+          return;
+        }
+
+        const jsonString = JSON.stringify(products, null, 2);
+        jsonOutput.textContent = jsonString;
+      }
+
+      async function copyJsonCode() {
+        const jsonOutput = document.getElementById("jsonOutput");
+        const jsonText = jsonOutput.textContent;
+
+        if (jsonText === "No products to display") {
+          showStatus("⚠ No JSON data to copy", "warning");
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(jsonText);
+          showStatus("✓ JSON copied to clipboard!", "success");
+        } catch (err) {
+          // Fallback method
+          const textarea = document.createElement("textarea");
+          textarea.value = jsonText;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          try {
+            document.execCommand("copy");
+            showStatus("✓ JSON copied to clipboard!", "success");
+          } catch (err2) {
+            showStatus("✗ Failed to copy JSON", "error");
+          }
+
+          document.body.removeChild(textarea);
+        }
+      }
+
+      function showStatus(message, type) {
+        const statusDiv = document.getElementById("status");
+        statusDiv.textContent = message;
+        statusDiv.className = type;
+        statusDiv.style.display = "block";
+
+        if (type === "success") {
+          setTimeout(() => {
+            statusDiv.style.display = "none";
+          }, 5000);
+        }
+      }
+    </script>
+  </body>
+</html>

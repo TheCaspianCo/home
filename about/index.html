@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About The Caspian Co - Honest outfit picks, simplified."
+    />
+    <title>About Us - The Caspian Co</title>
+
+    <link rel="icon" type="image/x-icon" href="../assets/logo/favicon.ico" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <style>
+      .page-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 60px 20px;
+        text-align: center;
+        color: white;
+      }
+
+      .page-header h1 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .page-header p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.95;
+      }
+
+      .content-section {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .content-section h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+      }
+
+      .content-section p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      .content-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0;
+      }
+
+      .content-section ul li {
+        padding: 12px 0 12px 32px;
+        position: relative;
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .content-section ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 32px;
+        margin: 40px 0;
+      }
+
+      .value-card {
+        background: var(--bg-tertiary);
+        padding: 32px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .value-card h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+      }
+
+      .value-card p {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 0;
+      }
+
+      .cta-section {
+        background: var(--bg-tertiary);
+        padding: 48px 20px;
+        text-align: center;
+        margin: 60px 0;
+        border-radius: 8px;
+      }
+
+      .cta-section h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      .cta-section p {
+        font-size: 18px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 32px;
+        }
+
+        .page-header p {
+          font-size: 16px;
+        }
+
+        .content-section h2 {
+          font-size: 24px;
+        }
+
+        .content-section p,
+        .content-section ul li {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="/" class="logo"><img src="../image.png" style="width: 170px"/></a>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products..."
+          />
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass" style="color: #000000"></i
+          ></span>
+        </div>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/picks/">Picks</a></li>
+            <li><a href="/deals/">Deals</a></li>
+            <li class="categories-dropdown">
+              <span class="dropdown-trigger" onclick="toggleDropdown()"
+                >Categories ▾</span
+              >
+              <div class="dropdown-menu" id="categoriesDropdown"></div>
+            </li>
+            <li>
+              <a href="/about/" style="color: var(--accent-color)">About</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1>About The Caspian Co</h1>
+      <p>Honest outfit picks. Simplified.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="content-section">
+      <h2>Our Mission</h2>
+      <p>
+        We believe shopping for quality clothing shouldn’t be overwhelming. The
+        Caspian Co curates honest, value-driven product recommendations — no
+        fake reviews, no paid hype, just genuine picks we stand behind.
+      </p>
+
+      <h2>Why We Started</h2>
+      <p>
+        Tired of misleading reviews and sponsored content? So were we. We
+        created The Caspian Co to cut through the noise and help you discover
+        products that actually deliver on their promises.
+      </p>
+
+      <h2>What Makes Us Different</h2>
+      <ul>
+        <li>No fake reviews or inflated ratings</li>
+        <li>Transparent affiliate partnerships</li>
+        <li>Carefully curated product selection</li>
+        <li>Focus on value, quality, and durability</li>
+        <li>No sponsored placements or paid promotions</li>
+      </ul>
+
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>🎯 Honesty</h3>
+          <p>
+            Every product is evaluated for durability, comfort, and real-world
+            value.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>💎 Quality</h3>
+          <p>
+            Every product is evaluated for durability, comfort, and real-world
+            value.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>🤝 Trust</h3>
+          <p>
+            Building long-term relationships with our community matters more
+            than quick sales.
+          </p>
+        </div>
+      </div>
+
+      <h2>How We Work</h2>
+      <p>
+        The Caspian Co. is an affiliate website. When you purchase through our
+        links, we may earn a commission — at no extra cost to you. This helps us
+        keep the platform running while staying true to our values. We only
+        partner with platforms we trust, and we never let affiliate earnings
+        influence our recommendations.
+      </p>
+
+      <div class="cta-section">
+        <h2>Ready to Explore?</h2>
+        <p>Browse our curated collection of honest picks</p>
+        <a href="/picks/" class="btn btn-primary">Browse All Products</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="/picks/">Picks</a></li>
+            <li><a href="/deals/">Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/affiliatedisclosure/">Affiliate Disclosure</a></li>
+            <li><a href="/terms/">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul>
+            <li>
+              <a href="https://instagram.com/the.caspian.co" target="_blank"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="yearfooter"></span> The Caspian Co. All rights reserved.</p>
+    </div>
+    </footer>
+    <script>
+    document.getElementById("yearfooter").textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+      function toggleMobileMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+
+      function toggleDropdown() {
+        document
+          .getElementById("categoriesDropdown")
+          .classList.toggle("active");
+      }
+
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".categories-dropdown")) {
+          document
+            .getElementById("categoriesDropdown")
+            .classList.remove("active");
+        }
+
+        if (
+          !e.target.closest(".mobile-menu-toggle") &&
+          !e.target.closest(".nav-links")
+        ) {
+          document.getElementById("navLinks").classList.remove("active");
+        }
+      });
+
+      // Load categories dropdown
+      (async function () {
+        try {
+          const response = await fetch("/data/categories.json");
+          const categories = await response.json();
+
+          document.getElementById("categoriesDropdown").innerHTML = categories
+            .map(
+              (cat) => `
+          <a href="/category/?category=${cat.id}">${cat.label}</a>
+        `,
+            )
+            .join("");
+        } catch (error) {
+          console.error("Failed to load categories");
+        }
+      })();
+
+      // Search functionality
+      const searchInput = document.getElementById("searchInput");
+      let searchTimeout;
+
+      searchInput.addEventListener("input", function (e) {
+        clearTimeout(searchTimeout);
+
+        searchTimeout = setTimeout(() => {
+          const query = e.target.value.trim();
+
+          if (query.length >= 2) {
+            window.location.href = `/picks/?search=${encodeURIComponent(query)}`;
+          }
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

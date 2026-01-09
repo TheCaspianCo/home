@@ -1,0 +1,23 @@
+{
+  "hero_banner": {
+    "enabled": 1,
+    "auto_slide": 1,
+    "slide_interval": 4000,
+    "slides": [
+      {
+        "image": "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/DECEMBER/24/R65H3jUw_aff6cb49aee34d14882246d358b08eb2.jpg",
+        "heading": "Honest outfit picks. Simplified.",
+        "subtext": "No fake reviews. Just value.",
+        "cta_text": "Explore Picks",
+        "cta_link": "/picks/"
+      },
+      {
+        "image": "https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/DECEMBER/24/f37wlcns_a6de626ba2754098bd7b7795a0afdecb.jpg",
+        "heading": "Winter Essentials",
+        "subtext": "Built for warmth & comfort",
+        "cta_text": "View Hoodies",
+        "cta_link": "/category/?category=hoodies"
+      }
+    ]
+  }
+}

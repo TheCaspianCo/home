@@ -1,0 +1,54 @@
+[
+  {
+    "id": "hoodies",
+    "label": "Hoodies",
+    "banner": {
+      "enabled": 0,
+      "images": [
+        "https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/DECEMBER/24/f37wlcns_a6de626ba2754098bd7b7795a0afdecb.jpg"
+      ],
+      "heading": "Winter Hoodies",
+      "subtext": "Warm. Durable. Everyday essentials."
+    }
+  },
+  {
+    "id": "tshirts",
+    "label": "T-Shirts",
+    "banner": {
+      "enabled": 0,
+      "images": [
+        "https://assets.myntassets.com/f_webp,w_490,c_limit,fl_progressive,dpr_2.0/assets/images/2025/DECEMBER/24/f37wlcns_a6de626ba2754098bd7b7795a0afdecb.jpg"
+      ],
+      "heading": "Premium T-Shirts",
+      "subtext": "Comfort meets style"
+    }
+  },
+  {
+    "id": "jeans",
+    "label": "Jeans",
+    "banner": {
+      "enabled": 0
+    }
+  },
+  {
+    "id": "shirts",
+    "label": "Shirts",
+    "banner": {
+      "enabled": 0
+    }
+  },
+  {
+    "id": "accessories",
+    "label": "Accessories",
+    "banner": {
+      "enabled": 0
+    }
+  },
+  {
+    "id": "jackets",
+    "label": "Jackets",
+    "banner": {
+      "enabled": 0
+    }
+  }
+]
