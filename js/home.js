@@ -137,7 +137,7 @@
     }
 
     dropdown.innerHTML = categories.map(cat => `
-      <a href="/category/?category=${cat.id}">${cat.label}</a>
+      <a href="/home/category/?category=${cat.id}">${cat.label}</a>
     `).join('');
   }
 
