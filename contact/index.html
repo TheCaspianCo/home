@@ -9,8 +9,8 @@
     />
     <title>Contact Us - The Caspian Co</title>
 
-    <link rel="icon" type="image/x-icon" href="../assets/logo/favicon.ico" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/home/assets/logo/favicon.ico" />
+    <link rel="stylesheet" href="/home/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -190,7 +190,7 @@
     <!-- Header -->
     <header class="header">
       <div class="nav-container">
-        <a href="/" class="logo"><img src="../image.png" style="width: 170px"/></a>
+        <a href="/home" class="logo"><img src="/home/image.png" style="width: 170px"/></a>
 
         <div class="search-bar">
           <input
@@ -204,15 +204,15 @@
 
         <nav>
           <ul class="nav-links" id="navLinks">
-            <li><a href="/picks/">Picks</a></li>
-            <li><a href="/deals/">Deals</a></li>
+            <li><a href="/home/picks/">Picks</a></li>
+            <li><a href="/home/deals/">Deals</a></li>
             <li class="categories-dropdown">
               <span class="dropdown-trigger" onclick="toggleDropdown()"
                 >Categories ▾</span
               >
               <div class="dropdown-menu" id="categoriesDropdown"></div>
             </li>
-            <li><a href="/about/">About</a></li>
+            <li><a href="/home/about/">About</a></li>
           </ul>
         </nav>
 
@@ -313,25 +313,25 @@
         <div class="footer-section">
           <h3>Shop</h3>
           <ul>
-            <li><a href="/picks/">Picks</a></li>
-            <li><a href="/deals/">Deals</a></li>
+            <li><a href="/home/picks/">Picks</a></li>
+            <li><a href="/home/deals/">Deals</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h3>Company</h3>
           <ul>
-            <li><a href="/about/">About Us</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/home/about/">About Us</a></li>
+            <li><a href="/home/contact/">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h3>Legal</h3>
           <ul>
-            <li><a href="/privacy/">Privacy Policy</a></li>
-            <li><a href="/affiliatedisclosure/">Affiliate Disclosure</a></li>
-            <li><a href="/terms/">Terms & Conditions</a></li>
+            <li><a href="/home/privacy/">Privacy Policy</a></li>
+            <li><a href="/home/affiliatedisclosure/">Affiliate Disclosure</a></li>
+            <li><a href="/home/terms/">Terms & Conditions</a></li>
           </ul>
         </div>
 
@@ -384,13 +384,13 @@
       // Load categories
       (async function () {
         try {
-          const response = await fetch("/data/categories.json");
+          const response = await fetch("/home/data/categories.json");
           const categories = await response.json();
 
           document.getElementById("categoriesDropdown").innerHTML = categories
             .map(
               (cat) => `
-          <a href="/category/?category=${cat.id}">${cat.label}</a>
+          <a href="/home/category/?category=${cat.id}">${cat.label}</a>
         `,
             )
             .join("");
@@ -410,7 +410,7 @@
           const query = e.target.value.trim();
 
           if (query.length >= 2) {
-            window.location.href = `/picks/?search=${encodeURIComponent(query)}`;
+            window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
           }
         }, 500);
       });

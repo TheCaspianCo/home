@@ -499,11 +499,11 @@
     const firstImage =
       product.images && product.images[0]
         ? product.images[0]
-        : "/assets/placeholder.jpg";
+        : "/home/assets/placeholder.jpg";
     const displayCategory = CaspianData.formatDisplayText(product.category);
 
     return `
-      <div class="product-card" onclick="window.location.href='/product/?id=${product.id}'">
+      <div class="product-card" onclick="window.location.href='/home/product/?id=${product.id}'">
         <div class="product-image-wrapper">
           <img src="${firstImage}" alt="${product.name}" class="product-image" loading="lazy">
           ${product.featured === 1 ? '<span class="product-badge">Featured</span>' : ""}
@@ -535,7 +535,7 @@
     dropdown.innerHTML = categories
       .map(
         (cat) => `
-      <a href="/category/?category=${cat.id}">${cat.label}</a>
+      <a href="/home/category/?category=${cat.id}">${cat.label}</a>
     `,
       )
       .join("");

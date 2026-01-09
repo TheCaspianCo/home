@@ -296,7 +296,7 @@
     const displayCategory = CaspianData.formatDisplayText(product.category);
 
     return `
-      <div class="product-card" onclick="window.location.href='/product/?id=${product.id}'">
+      <div class="product-card" onclick="window.location.href='/home/product/?id=${product.id}'">
         <div class="product-image-wrapper">
           <img src="${firstImage}" alt="${product.name}" class="product-image" loading="lazy">
           ${product.featured === 1 ? '<span class="product-badge">Featured</span>' : ""}
@@ -328,7 +328,7 @@
     dropdown.innerHTML = categories
       .map(
         (cat) => `
-      <a href="/category/?category=${cat.id}">${cat.label}</a>
+      <a href="/home/category/?category=${cat.id}">${cat.label}</a>
     `,
       )
       .join("");
@@ -348,7 +348,7 @@
         const query = e.target.value.trim();
 
         if (query.length >= 2) {
-          window.location.href = `/picks/?search=${encodeURIComponent(query)}`;
+          window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
         }
       }, 500);
     });
@@ -361,7 +361,7 @@
     document.getElementById("productContainer").innerHTML = `
       <div class="error-message">
         <h2>${message}</h2>
-        <p><a href="/" class="btn btn-primary" style="margin-top: 16px;">← Back to Home</a></p>
+        <p><a href="/home" class="btn btn-primary" style="margin-top: 16px;">← Back to Home</a></p>
       </div>
     `;
   }
