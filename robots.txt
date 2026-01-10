@@ -1,0 +1,17 @@
+# robots.txt for The Caspian Co
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin panel from indexing
+Disallow: /admin/
+
+# Disallow data files from direct indexing
+Disallow: /data/
+
+# Sitemap location
+Sitemap: https://thecaspianco.github.io/home/sitemap.xml
+
+# Crawl-delay (optional - prevents aggressive crawling)
+# Crawl-delay: 10
