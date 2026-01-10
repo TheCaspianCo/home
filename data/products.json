@@ -1,4 +1,38 @@
 [
+  
+  {
+    "id": "hoodies_e7r98c",
+    "name": "NOBERO Men Printed Hooded Sweatshirt",
+    "category": "hoodies",
+    "sub_category": "Pullover Hoodies",
+    "price": "₹1,215",
+    "images": [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2024/SEPTEMBER/20/LPxM1IbP_25df008420de469e951dc31b81aad663.jpg",
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/2024/SEPTEMBER/20/WnCXk9mH_ed1e3ebdd33e4ba28de556fbd20eb745.jpg"
+    ],
+    "highlights": [
+      "Soft fleece fabric focused on warmth, not breathability",
+      "Regular fit with hood and kangaroo pocket — standard street hoodie build",
+      "Printed design is the main value driver here"
+    ],
+    "description": "This is a fleece-based printed hoodie made for winter comfort and visual appeal. The fabric is warm and soft, the fit is predictable, and the print does the talking. Not premium, not technical — but a solid pick only if bought under ₹1,000.",
+    "rating": 4.2,
+    "tags": [
+      "fleece hoodie",
+      "printed hoodie",
+      "regular fit",
+      "hooded sweatshirt",
+      "winter wear"
+    ],
+    "platform": {
+      "type": "myntra",
+      "link": "https://www.myntra.com/sweatshirts/nobero/nobero-men-printed-hooded-sweatshirt/31044535/buy"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-12-09",
+    "publish_at": "2026-01-09T07:37:00"
+  },
   {
     "id": "hoodies_1751t6",
     "name": "Trillion Regular Fit Printed Hoodie for Men | Sweatshirt for Men",
