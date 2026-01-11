@@ -845,7 +845,7 @@
                 <input type="date" id="addedDate" />
               </div>
               <div class="form-group">
-                <label>Publish At * (IST)</label>
+                <label>Publish At *</label>
                 <input type="datetime-local" id="publishAt" />
               </div>
             </div>
@@ -913,7 +913,7 @@
                 id="jsonOutput"
                 style="
                   color: #d4d4d4;
-                  font-family: 'Courier New', monospace;
+                  font-family: &quot;Courier New&quot;, monospace;
                   font-size: 12px;
                   margin: 0;
                   white-space: pre-wrap;
@@ -953,7 +953,7 @@ No products to display</pre
 
     <script>
       // ⚠️ HARDCODED JSON FILE PATH ⚠️
-      const DEFAULT_JSON_FILENAME = "../data/products.json";
+      const DEFAULT_JSON_FILENAME = "/home/data/products.json";
 
       // ⚠️ SUB CATEGORIES MAPPING - Add your custom sub categories here ⚠️
       const SUB_CATEGORIES = {
@@ -1083,483 +1083,474 @@ No products to display</pre
           updateProductCount();
           updateJsonOutput();
           showStatus(`✓ Loaded ${products.length} product(s)`, "success");
-} catch (error) {
-showStatus(`✗ Error: ${error.message}`, "error");
-products = [];
-filteredProducts = [];
-renderProductsList();
-updateJsonOutput();
-}
-}
-function searchProducts() {
-    const searchTerm = document
-      .getElementById("searchBox")
-      .value.toLowerCase();
-
-    if (!searchTerm) {
-      filteredProducts = [...products];
-    } else {
-      filteredProducts = products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchTerm) ||
-          product.id.toLowerCase().includes(searchTerm) ||
-          product.category.toLowerCase().includes(searchTerm) ||
-          product.description.toLowerCase().includes(searchTerm),
-      );
-    }
-
-    renderProductsList();
-  }
-
-  function renderProductsList() {
-    const container = document.getElementById("productsList");
-
-    if (filteredProducts.length === 0) {
-      container.innerHTML =
-        '<div class="no-products">No products found</div>';
-      return;
-    }
-
-    container.innerHTML = filteredProducts
-      .map((product) => {
-        const actualIndex = products.indexOf(product);
-        const firstImage =
-          product.images && product.images[0] ? product.images[0] : "";
-
-        return `
-    <div class="product-card ${selectedProductIndex === actualIndex ? "selected" : ""}" onclick="selectProduct(${actualIndex})">
-      ${firstImage ? `<img src="${firstImage}" alt="${product.name}" class="product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect fill=\\'%23e9ecef\\' width=\\'80\\' height=\\'80\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' fill=\\'%23999\\' font-size=\\'12\\'%3ENo Image%3C/text%3E%3C/svg%3E'">` : '<div class="product-image"></div>'}
-      <div class="product-info">
-        <h4>${product.name}</h4>
-        <p><strong>ID:</strong> ${product.id}</p>
-        <p><strong>Price:</strong> ${product.price} | <strong>Rating:</strong> ${product.rating}</p>
-        <div class="product-badges">
-          <span class="badge ${product.active === 1 ? "badge-active" : "badge-inactive"}">
-            ${product.active === 1 ? "Active" : "Inactive"}
-          </span>
-          ${product.featured === 1 ? '<span class="badge badge-featured">Featured</span>' : ""}
-        </div>
-      </div>
-    </div>
-  `;
-      })
-      .join("");
-  }
-
-  function selectProduct(index) {
-    selectedProductIndex = index;
-    const product = products[index];
-
-    document.getElementById("productId").value = product.id;
-    document.getElementById("productName").value = product.name;
-    document.getElementById("category").value = product.category;
-    updateSubCategory();
-    document.getElementById("subCategory").value = product.sub_category;
-    document.getElementById("price").value = product.price;
-    document.getElementById("rating").value = product.rating;
-    document.getElementById("description").value = product.description;
-    document.getElementById("tags").value = product.tags.join(", ");
-    document.getElementById("platformType").value = product.platform.type;
-    document.getElementById("platformLink").value = product.platform.link;
-    document.getElementById("featured").value = product.featured;
-    document.getElementById("active").value = product.active;
-    document.getElementById("addedDate").value = product.added_date;
-
-    if (product.publish_at) {
-      const dt = new Date(product.publish_at + 'Z'); // Add 'Z' to treat as UTC
-      // Subtract 5 hours and 30 minutes to display in IST
-      dt.setMinutes(dt.getMinutes() - 330);
-      const formatted = new Date(dt.getTime() - dt.getTimezoneOffset() * 60000)
-        .toISOString()
-        .slice(0, 16);
-      document.getElementById("publishAt").value = formatted;
-    }
-
-    const imagesContainer = document.getElementById("imagesContainer");
-    imagesContainer.innerHTML = "";
-    product.images.forEach((img) => {
-      addImage(img);
-    });
-
-    const highlightsContainer = document.getElementById(
-      "highlightsContainer",
-    );
-    highlightsContainer.innerHTML = "";
-    product.highlights.forEach((highlight) => {
-      addHighlight(highlight);
-    });
-
-    renderProductsList();
-    showStatus(`Selected: ${product.name}`, "info");
-
-    // Scroll to top on mobile
-    if (window.innerWidth <= 1024) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
-
-  function addImage(value = "") {
-    const container = document.getElementById("imagesContainer");
-    const div = document.createElement("div");
-    div.className = "array-item";
-
-    const uniqueId =
-      "img_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
-
-    div.innerHTML = `
-    <img class="image-preview ${value ? "loading" : ""}" id="${uniqueId}" src="${value || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E'}" 
-         onerror="this.className='image-preview error'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22%3E%3Crect fill=%22%23f8d7da%22 width=%2250%22 height=%2250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23721c24%22 font-size=%2220%22%3E✕%3C/text%3E%3C/svg%3E';"
-         onload="this.className='image-preview';"
-         onclick="openImagePreview('${uniqueId}')"
-         title="Click to preview full image"
-         alt="Image preview">
-    <input type="text" placeholder="https://example.com/image.jpg" value="${value}" oninput="updateImagePreview('${uniqueId}', this.value)">
-    <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
-  `;
-    container.appendChild(div);
-  }
-
-  function updateImagePreview(imgId, url) {
-    const img = document.getElementById(imgId);
-    if (!img) return;
-
-    if (!url.trim()) {
-      img.className = "image-preview";
-      img.src =
-        'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E';
-      return;
-    }
-
-    img.className = "image-preview loading";
-    img.src = url;
-  }
-
-  function openImagePreview(imgId) {
-    const img = document.getElementById(imgId);
-    if (!img || !img.src || img.className.includes("error")) return;
-
-    const modal = document.createElement("div");
-    modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    cursor: pointer;
-  `;
-
-    const previewImg = document.createElement("img");
-    previewImg.src = img.src;
-    previewImg.style.cssText = `
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
-  `;
-
-    modal.appendChild(previewImg);
-    modal.onclick = () => modal.remove();
-
-    document.body.appendChild(modal);
-  }
-
-  function addHighlight(value = "") {
-    const container = document.getElementById("highlightsContainer");
-    const div = document.createElement("div");
-    div.className = "array-item";
-    div.innerHTML = `
-    <input type="text" placeholder="220 GSM cotton" value="${value}">
-    <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
-  `;
-    container.appendChild(div);
-  }
-
-  function getFormData() {
-    const images = Array.from(
-      document.querySelectorAll("#imagesContainer input"),
-    )
-      .map((input) => input.value.trim())
-      .filter((val) => val);
-
-    const highlights = Array.from(
-      document.querySelectorAll("#highlightsContainer input"),
-    )
-      .map((input) => input.value.trim())
-      .filter((val) => val);
-
-    const tags = document
-      .getElementById("tags")
-      .value.split(",")
-      .map((tag) => tag.trim())
-      .filter((tag) => tag);
-
-    const addedDate = document.getElementById("addedDate").value;
-    const publishAtValue = document.getElementById("publishAt").value;
-    
-    // Fix timezone: Subtract 5:30 hours to convert IST to UTC
-    let publishAt = "";
-    if (publishAtValue) {
-      const localDate = new Date(publishAtValue);
-      // Subtract 5 hours and 30 minutes (330 minutes) to convert IST to UTC
-      localDate.setMinutes(localDate.getMinutes() - 330);
-      publishAt = localDate.toISOString().slice(0, 19);
-    }
-
-    return {
-      id: document.getElementById("productId").value.trim(),
-      name: document.getElementById("productName").value.trim(),
-      category: document.getElementById("category").value,
-      sub_category: document.getElementById("subCategory").value.trim(),
-      price: document.getElementById("price").value.trim(),
-      images,
-      highlights,
-      description: document.getElementById("description").value.trim(),
-      rating: parseFloat(document.getElementById("rating").value) || 0,
-      tags,
-      platform: {
-        type: document.getElementById("platformType").value,
-        link: document.getElementById("platformLink").value.trim(),
-      },
-      featured: parseInt(document.getElementById("featured").value),
-      active: parseInt(document.getElementById("active").value),
-      added_date: addedDate,
-      publish_at: publishAt,
-    };
-  }
-
-  function validateProduct(product) {
-    if (!product.id) return "Product ID is required";
-    if (!product.name) return "Product name is required";
-    if (!product.category) return "Category is required";
-    if (!product.sub_category) return "Sub category is required";
-    if (!product.price) return "Price is required";
-    if (product.images.length === 0)
-      return "At least one image URL is required";
-    if (product.highlights.length === 0)
-      return "At least one highlight is required";
-    if (!product.description) return "Description is required";
-    if (product.rating < 0 || product.rating > 5)
-      return "Rating must be between 0 and 5";
-    if (!product.platform.link) return "Platform link is required";
-    if (!product.added_date) return "Added date is required";
-    if (!product.publish_at) return "Publish date/time is required";
-    return null;
-  }
-
-  function addProduct() {
-    const product = getFormData();
-    const error = validateProduct(product);
-
-    if (error) {
-      showStatus(`✗ ${error}`, "error");
-      return;
-    }
-
-    if (products.some((p) => p.id === product.id)) {
-      showStatus(`✗ Product ID "${product.id}" already exists`, "error");
-      return;
-    }
-
-    products.push(product);
-
-    // Sort products: recently added first
-    products.sort((a, b) => {
-      const dateA = new Date(
-        a.added_date +
-          "T" +
-          (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
-      );
-      const dateB = new Date(
-        b.added_date +
-          "T" +
-          (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
-      );
-      return dateB - dateA;
-    });
-
-    filteredProducts = [...products];
-    renderProductsList();
-    updateProductCount();
-    clearForm();
-    updateJsonOutput();
-    showStatus(`✓ Product "${product.name}" added!`, "success");
-  }
-
-  function updateProduct() {
-    if (selectedProductIndex === -1) {
-      showStatus("⚠ Please select a product to update", "warning");
-      return;
-    }
-
-    const product = getFormData();
-    const error = validateProduct(product);
-
-    if (error) {
-      showStatus(`✗ ${error}`, "error");
-      return;
-    }
-
-    if (
-      products.some(
-        (p, idx) => p.id === product.id && idx !== selectedProductIndex,
-      )
-    ) {
-      showStatus(`✗ Product ID "${product.id}" already exists`, "error");
-      return;
-    }
-
-    products[selectedProductIndex] = product;
-
-    // Sort products: recently added first
-    products.sort((a, b) => {
-      const dateA = new Date(
-        a.added_date +
-          "T" +
-          (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
-      );
-      const dateB = new Date(
-        b.added_date +
-          "T" +
-          (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
-      );
-      return dateB - dateA;
-    });
-
-    filteredProducts = [...products];
-    renderProductsList();
-    updateProductCount();
-    updateJsonOutput();
-    showStatus(`✓ Product "${product.name}" updated!`, "success");
-  }
-
-  function deleteProduct() {
-    if (selectedProductIndex === -1) {
-      showStatus("⚠ Please select a product to delete", "warning");
-      return;
-    }
-
-    const product = products[selectedProductIndex];
-
-    if (!confirm(`Delete "${product.name}"?`)) {
-      return;
-    }
-
-    products.splice(selectedProductIndex, 1);
-    filteredProducts = [...products];
-    renderProductsList();
-    updateProductCount();
-    clearForm();
-    updateJsonOutput();
-    showStatus(`✓ Product deleted!`, "success");
-  }
-
-  function clearForm() {
-    selectedProductIndex = -1;
-    document.getElementById("productId").value = "";
-    document.getElementById("productName").value = "";
-    document.getElementById("category").value = "";
-    document.getElementById("subCategory").innerHTML =
-      '<option value="">Select Category First</option>';
-    document.getElementById("price").value = "₹";
-    document.getElementById("rating").value = "";
-    document.getElementById("description").value = "";
-    document.getElementById("tags").value = "";
-    document.getElementById("platformType").value = "amazon";
-    document.getElementById("platformLink").value = "";
-    document.getElementById("featured").value = "0";
-    document.getElementById("active").value = "1";
-
-    document.getElementById("imagesContainer").innerHTML = "";
-    document.getElementById("highlightsContainer").innerHTML = "";
-
-    setDefaultDates();
-    generateProductId();
-    renderProductsList();
-  }
-
-  function setDefaultDates() {
-    const today = new Date().toISOString().split("T")[0];
-    const now = new Date().toISOString().slice(0, 16);
-    document.getElementById("addedDate").value = today;
-    document.getElementById("publishAt").value = now;
-  }
-
-  function updateProductCount() {
-    const count = products.length;
-    const active = products.filter((p) => p.active === 1).length;
-    const inactive = products.filter((p) => p.active === 0).length;
-    const featured = products.filter((p) => p.featured === 1).length;
-
-    document.getElementById("productCount").innerHTML = `
-    📦 Total: <strong>${count}</strong> | 
-    ✓ Active: <strong>${active}</strong> | 
-    ✗ Inactive: <strong>${inactive}</strong> | 
-    ⭐ Featured: <strong>${featured}</strong>
-  `;
-  }
-
-  function updateJsonOutput() {
-    const jsonOutput = document.getElementById("jsonOutput");
-
-    if (products.length === 0) {
-      jsonOutput.textContent = "No products to display";
-      return;
-    }
-
-    const jsonString = JSON.stringify(products, null, 2);
-    jsonOutput.textContent = jsonString;
-  }
-
-  async function copyJsonCode() {
-    const jsonOutput = document.getElementById("jsonOutput");
-    const jsonText = jsonOutput.textContent;
-
-    if (jsonText === "No products to display") {
-      showStatus("⚠ No JSON data to copy", "warning");
-      return;
-    }
-
-    try {
-      await navigator.clipboard.writeText(jsonText);
-      showStatus("✓ JSON copied to clipboard!", "success");
-    } catch (err) {
-      // Fallback method
-      const textarea = document.createElement("textarea");
-      textarea.value = jsonText;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-
-      try {
-        document.execCommand("copy");
-        showStatus("✓ JSON copied to clipboard!", "success");
-      } catch (err2) {
-        showStatus("✗ Failed to copy JSON", "error");
+        } catch (error) {
+          showStatus(`✗ Error: ${error.message}`, "error");
+          products = [];
+          filteredProducts = [];
+          renderProductsList();
+          updateJsonOutput();
+        }
       }
 
-      document.body.removeChild(textarea);
-    }
-  }
+      function searchProducts() {
+        const searchTerm = document
+          .getElementById("searchBox")
+          .value.toLowerCase();
 
-  function showStatus(message, type) {
-    const statusDiv = document.getElementById("status");
-    statusDiv.textContent = message;
-    statusDiv.className = type;
-    statusDiv.style.display = "block";
+        if (!searchTerm) {
+          filteredProducts = [...products];
+        } else {
+          filteredProducts = products.filter(
+            (product) =>
+              product.name.toLowerCase().includes(searchTerm) ||
+              product.id.toLowerCase().includes(searchTerm) ||
+              product.category.toLowerCase().includes(searchTerm) ||
+              product.description.toLowerCase().includes(searchTerm),
+          );
+        }
 
-    if (type === "success") {
-      setTimeout(() => {
-        statusDiv.style.display = "none";
-      }, 5000);
-    }
-  }
-</script>
-</body>
+        renderProductsList();
+      }
+
+      function renderProductsList() {
+        const container = document.getElementById("productsList");
+
+        if (filteredProducts.length === 0) {
+          container.innerHTML =
+            '<div class="no-products">No products found</div>';
+          return;
+        }
+
+        container.innerHTML = filteredProducts
+          .map((product) => {
+            const actualIndex = products.indexOf(product);
+            const firstImage =
+              product.images && product.images[0] ? product.images[0] : "";
+
+            return `
+        <div class="product-card ${selectedProductIndex === actualIndex ? "selected" : ""}" onclick="selectProduct(${actualIndex})">
+          ${firstImage ? `<img src="${firstImage}" alt="${product.name}" class="product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect fill=\\'%23e9ecef\\' width=\\'80\\' height=\\'80\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' fill=\\'%23999\\' font-size=\\'12\\'%3ENo Image%3C/text%3E%3C/svg%3E'">` : '<div class="product-image"></div>'}
+          <div class="product-info">
+            <h4>${product.name}</h4>
+            <p><strong>ID:</strong> ${product.id}</p>
+            <p><strong>Price:</strong> ${product.price} | <strong>Rating:</strong> ${product.rating}</p>
+            <div class="product-badges">
+              <span class="badge ${product.active === 1 ? "badge-active" : "badge-inactive"}">
+                ${product.active === 1 ? "Active" : "Inactive"}
+              </span>
+              ${product.featured === 1 ? '<span class="badge badge-featured">Featured</span>' : ""}
+            </div>
+          </div>
+        </div>
+      `;
+          })
+          .join("");
+      }
+
+      function selectProduct(index) {
+        selectedProductIndex = index;
+        const product = products[index];
+
+        document.getElementById("productId").value = product.id;
+        document.getElementById("productName").value = product.name;
+        document.getElementById("category").value = product.category;
+        updateSubCategory();
+        document.getElementById("subCategory").value = product.sub_category;
+        document.getElementById("price").value = product.price;
+        document.getElementById("rating").value = product.rating;
+        document.getElementById("description").value = product.description;
+        document.getElementById("tags").value = product.tags.join(", ");
+        document.getElementById("platformType").value = product.platform.type;
+        document.getElementById("platformLink").value = product.platform.link;
+        document.getElementById("featured").value = product.featured;
+        document.getElementById("active").value = product.active;
+        document.getElementById("addedDate").value = product.added_date;
+
+        if (product.publish_at) {
+          const dt = new Date(product.publish_at);
+          const formatted = dt.toISOString().slice(0, 16);
+          document.getElementById("publishAt").value = formatted;
+        }
+
+        const imagesContainer = document.getElementById("imagesContainer");
+        imagesContainer.innerHTML = "";
+        product.images.forEach((img) => {
+          addImage(img);
+        });
+
+        const highlightsContainer = document.getElementById(
+          "highlightsContainer",
+        );
+        highlightsContainer.innerHTML = "";
+        product.highlights.forEach((highlight) => {
+          addHighlight(highlight);
+        });
+
+        renderProductsList();
+        showStatus(`Selected: ${product.name}`, "info");
+
+        // Scroll to top on mobile
+        if (window.innerWidth <= 1024) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      function addImage(value = "") {
+        const container = document.getElementById("imagesContainer");
+        const div = document.createElement("div");
+        div.className = "array-item";
+
+        const uniqueId =
+          "img_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+
+        div.innerHTML = `
+        <img class="image-preview ${value ? "loading" : ""}" id="${uniqueId}" src="${value || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E'}" 
+             onerror="this.className='image-preview error'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22%3E%3Crect fill=%22%23f8d7da%22 width=%2250%22 height=%2250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23721c24%22 font-size=%2220%22%3E✕%3C/text%3E%3C/svg%3E';"
+             onload="this.className='image-preview';"
+             onclick="openImagePreview('${uniqueId}')"
+             title="Click to preview full image"
+             alt="Image preview">
+        <input type="text" placeholder="https://example.com/image.jpg" value="${value}" oninput="updateImagePreview('${uniqueId}', this.value)">
+        <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
+      `;
+        container.appendChild(div);
+      }
+
+      function updateImagePreview(imgId, url) {
+        const img = document.getElementById(imgId);
+        if (!img) return;
+
+        if (!url.trim()) {
+          img.className = "image-preview";
+          img.src =
+            'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="50" height="50"%3E%3Crect fill="%23e9ecef" width="50" height="50"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10"%3ENo URL%3C/text%3E%3C/svg%3E';
+          return;
+        }
+
+        img.className = "image-preview loading";
+        img.src = url;
+      }
+
+      function openImagePreview(imgId) {
+        const img = document.getElementById(imgId);
+        if (!img || !img.src || img.className.includes("error")) return;
+
+        const modal = document.createElement("div");
+        modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: pointer;
+      `;
+
+        const previewImg = document.createElement("img");
+        previewImg.src = img.src;
+        previewImg.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+      `;
+
+        modal.appendChild(previewImg);
+        modal.onclick = () => modal.remove();
+
+        document.body.appendChild(modal);
+      }
+
+      function addHighlight(value = "") {
+        const container = document.getElementById("highlightsContainer");
+        const div = document.createElement("div");
+        div.className = "array-item";
+        div.innerHTML = `
+        <input type="text" placeholder="220 GSM cotton" value="${value}">
+        <button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
+      `;
+        container.appendChild(div);
+      }
+
+      function getFormData() {
+        const images = Array.from(
+          document.querySelectorAll("#imagesContainer input"),
+        )
+          .map((input) => input.value.trim())
+          .filter((val) => val);
+
+        const highlights = Array.from(
+          document.querySelectorAll("#highlightsContainer input"),
+        )
+          .map((input) => input.value.trim())
+          .filter((val) => val);
+
+        const tags = document
+          .getElementById("tags")
+          .value.split(",")
+          .map((tag) => tag.trim())
+          .filter((tag) => tag);
+
+        const addedDate = document.getElementById("addedDate").value;
+        const publishAtValue = document.getElementById("publishAt").value;
+        const publishAt = publishAtValue
+          ? new Date(publishAtValue).toISOString().slice(0, 19)
+          : "";
+
+        return {
+          id: document.getElementById("productId").value.trim(),
+          name: document.getElementById("productName").value.trim(),
+          category: document.getElementById("category").value,
+          sub_category: document.getElementById("subCategory").value.trim(),
+          price: document.getElementById("price").value.trim(),
+          images,
+          highlights,
+          description: document.getElementById("description").value.trim(),
+          rating: parseFloat(document.getElementById("rating").value) || 0,
+          tags,
+          platform: {
+            type: document.getElementById("platformType").value,
+            link: document.getElementById("platformLink").value.trim(),
+          },
+          featured: parseInt(document.getElementById("featured").value),
+          active: parseInt(document.getElementById("active").value),
+          added_date: addedDate,
+          publish_at: publishAt,
+        };
+      }
+
+      function validateProduct(product) {
+        if (!product.id) return "Product ID is required";
+        if (!product.name) return "Product name is required";
+        if (!product.category) return "Category is required";
+        if (!product.sub_category) return "Sub category is required";
+        if (!product.price) return "Price is required";
+        if (product.images.length === 0)
+          return "At least one image URL is required";
+        if (product.highlights.length === 0)
+          return "At least one highlight is required";
+        if (!product.description) return "Description is required";
+        if (product.rating < 0 || product.rating > 5)
+          return "Rating must be between 0 and 5";
+        if (!product.platform.link) return "Platform link is required";
+        if (!product.added_date) return "Added date is required";
+        if (!product.publish_at) return "Publish date/time is required";
+        return null;
+      }
+
+      function addProduct() {
+        const product = getFormData();
+        const error = validateProduct(product);
+
+        if (error) {
+          showStatus(`✗ ${error}`, "error");
+          return;
+        }
+
+        if (products.some((p) => p.id === product.id)) {
+          showStatus(`✗ Product ID "${product.id}" already exists`, "error");
+          return;
+        }
+
+        products.push(product);
+
+        // Sort products: recently added first
+        products.sort((a, b) => {
+          const dateA = new Date(
+            a.added_date +
+              "T" +
+              (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
+          );
+          const dateB = new Date(
+            b.added_date +
+              "T" +
+              (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
+          );
+          return dateB - dateA;
+        });
+
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        clearForm();
+        updateJsonOutput();
+        showStatus(`✓ Product "${product.name}" added!`, "success");
+      }
+
+      function updateProduct() {
+        if (selectedProductIndex === -1) {
+          showStatus("⚠ Please select a product to update", "warning");
+          return;
+        }
+
+        const product = getFormData();
+        const error = validateProduct(product);
+
+        if (error) {
+          showStatus(`✗ ${error}`, "error");
+          return;
+        }
+
+        if (
+          products.some(
+            (p, idx) => p.id === product.id && idx !== selectedProductIndex,
+          )
+        ) {
+          showStatus(`✗ Product ID "${product.id}" already exists`, "error");
+          return;
+        }
+
+        products[selectedProductIndex] = product;
+
+        // Sort products: recently added first
+        products.sort((a, b) => {
+          const dateA = new Date(
+            a.added_date +
+              "T" +
+              (a.publish_at ? a.publish_at.split("T")[1] : "00:00:00"),
+          );
+          const dateB = new Date(
+            b.added_date +
+              "T" +
+              (b.publish_at ? b.publish_at.split("T")[1] : "00:00:00"),
+          );
+          return dateB - dateA;
+        });
+
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        updateJsonOutput();
+        showStatus(`✓ Product "${product.name}" updated!`, "success");
+      }
+
+      function deleteProduct() {
+        if (selectedProductIndex === -1) {
+          showStatus("⚠ Please select a product to delete", "warning");
+          return;
+        }
+
+        const product = products[selectedProductIndex];
+
+        if (!confirm(`Delete "${product.name}"?`)) {
+          return;
+        }
+
+        products.splice(selectedProductIndex, 1);
+        filteredProducts = [...products];
+        renderProductsList();
+        updateProductCount();
+        clearForm();
+        updateJsonOutput();
+        showStatus(`✓ Product deleted!`, "success");
+      }
+
+      function clearForm() {
+        selectedProductIndex = -1;
+        document.getElementById("productId").value = "";
+        document.getElementById("productName").value = "";
+        document.getElementById("category").value = "";
+        document.getElementById("subCategory").innerHTML =
+          '<option value="">Select Category First</option>';
+        document.getElementById("price").value = "₹";
+        document.getElementById("rating").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("tags").value = "";
+        document.getElementById("platformType").value = "amazon";
+        document.getElementById("platformLink").value = "";
+        document.getElementById("featured").value = "0";
+        document.getElementById("active").value = "1";
+
+        document.getElementById("imagesContainer").innerHTML = "";
+        document.getElementById("highlightsContainer").innerHTML = "";
+
+        setDefaultDates();
+        generateProductId();
+        renderProductsList();
+      }
+
+      function setDefaultDates() {
+        const today = new Date().toISOString().split("T")[0];
+        const now = new Date().toISOString().slice(0, 16);
+        document.getElementById("addedDate").value = today;
+        document.getElementById("publishAt").value = now;
+      }
+
+      function updateProductCount() {
+        const count = products.length;
+        const active = products.filter((p) => p.active === 1).length;
+        const inactive = products.filter((p) => p.active === 0).length;
+        const featured = products.filter((p) => p.featured === 1).length;
+
+        document.getElementById("productCount").innerHTML = `
+        📦 Total: <strong>${count}</strong> | 
+        ✓ Active: <strong>${active}</strong> | 
+        ✗ Inactive: <strong>${inactive}</strong> | 
+        ⭐ Featured: <strong>${featured}</strong>
+      `;
+      }
+
+      function updateJsonOutput() {
+        const jsonOutput = document.getElementById("jsonOutput");
+
+        if (products.length === 0) {
+          jsonOutput.textContent = "No products to display";
+          return;
+        }
+
+        const jsonString = JSON.stringify(products, null, 2);
+        jsonOutput.textContent = jsonString;
+      }
+
+      async function copyJsonCode() {
+        const jsonOutput = document.getElementById("jsonOutput");
+        const jsonText = jsonOutput.textContent;
+
+        if (jsonText === "No products to display") {
+          showStatus("⚠ No JSON data to copy", "warning");
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(jsonText);
+          showStatus("✓ JSON copied to clipboard!", "success");
+        } catch (err) {
+          // Fallback method
+          const textarea = document.createElement("textarea");
+          textarea.value = jsonText;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          try {
+            document.execCommand("copy");
+            showStatus("✓ JSON copied to clipboard!", "success");
+          } catch (err2) {
+            showStatus("✗ Failed to copy JSON", "error");
+          }
+
+          document.body.removeChild(textarea);
+        }
+      }
+
+      function showStatus(message, type) {
+        const statusDiv = document.getElementById("status");
+        statusDiv.textContent = message;
+        statusDiv.className = type;
+        statusDiv.style.display = "block";
+
+        if (type === "success") {
+          setTimeout(() => {
+            statusDiv.style.display = "none";
+          }, 5000);
+        }
+      }
+    </script>
+  </body>
 </html>
