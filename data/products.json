@@ -1,5 +1,37 @@
 [
-  
+  {
+    "id": "hoodies_p2ly3f",
+    "name": "SMOWKLY Men’s Collar Chain Cotton Fleece Sweatshirt",
+    "category": "hoodies",
+    "sub_category": "Pullover Hoodies",
+    "price": "₹599",
+    "images": [
+      "https://m.media-amazon.com/images/I/515IJyq+mGL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/41NIpyj3ljL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Half-zip mock neck design",
+      "Soft cotton fleece fabric",
+      "Regular fit with long sleeves"
+    ],
+    "description": "A comfortable fleece hoodie designed for everyday winter wear. Features a regular fit, hooded neck, and durable printed design. Easy to style with jeans or joggers for casual outings and daily use.",
+    "rating": 4.1,
+    "tags": [
+      "fleece hoodie",
+      "printed hoodie",
+      "regular fit",
+      "hooded sweatshirt",
+      "winter wear"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/SMOWKLY-Sweatshirt-Breathable-1686_OFWT_L-Off-White/dp/B0FXXDX4Q9?ref=dlx_deals_dg_dcl_B0FXXDX4Q9_dt_sl10_e6&pf_rd_r=M3Y9YPCBY1GH6ZQ79T73&pf_rd_p=2b343ac0-d264-495b-a80e-6e255ba977e6&th=1&psc=1"
+    },
+    "featured": 0,
+    "active": 1,
+    "added_date": "2026-01-11",
+    "publish_at": "2026-01-11T18:00:00"
+  },
   {
     "id": "hoodies_e7r98c",
     "name": "NOBERO Men Printed Hooded Sweatshirt",
