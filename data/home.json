@@ -1,6 +1,6 @@
 {
   "hero_banner": {
-    "enabled": 0,
+    "enabled": 1,
     "auto_slide": 1,
     "slide_interval": 4000,
     "slides": [
