@@ -1,5 +1,40 @@
 [
- 
+{
+    "id": "tshirts_04mqaj",
+    "name": "Bewakoof Official Naruto Merchandise Men's 100% Cotton 220 GSM Graphic Print Oversized Fit Round Neck T-Shirt",
+    "category": "tshirts",
+    "sub_category": "Graphic Tees",
+    "price": "₹659",
+    "images": [
+      "https://m.media-amazon.com/images/I/51W8Z9dlxqL._SX569_.jpg",
+      "https://m.media-amazon.com/images/I/61ZJOIs8IIL._SX569_.jpg",
+      "https://m.media-amazon.com/images/I/71HbzE-4-VL._SX569_.jpg"
+    ],
+    "highlights": [
+      "220 GSM cotton",
+      "Oversized fit",
+      "Summer wear",
+      "Graphic print",
+      "Casual street use"
+    ],
+    "description": "Made from 220 GSM 100% cotton, this oversized graphic t-shirt delivers breathable comfort and a relaxed fit. Ideal for summer wear, casual outings, travel, or streetwear styling, it pairs easily with jeans, joggers, or shorts.",
+    "rating": 4.4,
+    "tags": [
+      "oversized t-shirt",
+      "100% cotton",
+      "220 gsm fabric",
+      "graphic print tee",
+      "summer wear"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/dp/B0CNPZ7JYG"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-13",
+    "publish_at": "2026-01-13T18:06:00"
+  }, 
   {
     "id": "hoodies_0v3uun",
     "name": "Los Angeles Printed Hoodies Sweatshirt Polycotton for Running, Gym Warm Travel Hoodies for Men",
