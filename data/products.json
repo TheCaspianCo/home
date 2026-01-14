@@ -1,4 +1,37 @@
 [
+    {
+    "id": "shirts_s5ic59",
+    "name": "The Souled Store Cotton Linen Stripes",
+    "category": "shirts",
+    "sub_category": "Striped Shirts",
+    "price": "₹1,399",
+    "images": [
+      "https://m.media-amazon.com/images/I/51bhs2+hdJL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Cotton linen blend",
+      "Regular fit",
+      "Summer wear",
+      "Lightweight fabric"
+    ],
+    "description": "Crafted from an 85% cotton and 15% linen blend, this regular-fit striped shirt feels lightweight and breathable. Designed for summer comfort, it works well for casual outings, office wear, or everyday styling while maintaining a clean, polished look.",
+    "rating": 5,
+    "tags": [
+      "cotton linen shirt",
+      "regular fit",
+      "striped shirt",
+      "summer wear",
+      "breathable fabric"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/Souled-Store-Cotton-Linen-Stripes/dp/B0FN16D377/"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-14",
+    "publish_at": "2026-01-14T07:15:00"
+  },
 {
     "id": "tshirts_04mqaj",
     "name": "Bewakoof Official Naruto Merchandise Men's 100% Cotton 220 GSM Graphic Print Oversized Fit Round Neck T-Shirt",
