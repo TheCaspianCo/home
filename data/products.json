@@ -1,4 +1,38 @@
 [
+      {
+    "id": "shirts_or8rxs",
+    "name": "Thomas Scott Men's Cotton Slim Fit Premium Corduroy Long Sleeve",
+    "category": "shirts",
+    "sub_category": "Solid Shirts",
+    "price": "₹899",
+    "images": [
+      "https://m.media-amazon.com/images/I/61+SNq052DL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/61-5K1FiCcL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Cotton lycra fabric",
+      "Corduroy texture",
+      "Slim fit",
+      "Casual styling"
+    ],
+    "description": "Made from cotton lycra corduroy, this slim-fit shirt offers soft stretch comfort with a structured feel. Designed for winter casual wear, it delivers a sharp silhouette suitable for daily use, outings, or relaxed occasions with all-day ease.",
+    "rating": 3.6,
+    "tags": [
+      "corduroy shirt",
+      "slim fit",
+      "cotton lycra",
+      "winter wear",
+      "casual shirt"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/dp/B0CQ4Q8HBZ"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-15",
+    "publish_at": "2026-01-15T03:26:00"
+  },
     {
     "id": "shirts_s5ic59",
     "name": "The Souled Store Cotton Linen Stripes",
