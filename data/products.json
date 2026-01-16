@@ -1,4 +1,33 @@
 [
+  
+  {
+    "id": "jackets_k8d9zv",
+    "name": "Dollar Full Sleeves Bomber Jacket for Men | TPU Men's Standing Collar Lightweight Winter Jacket, Regular Fit",
+    "category": "jackets",
+    "sub_category": "Bomber Jackets",
+    "price": "₹901",
+    "images": [
+      "https://m.media-amazon.com/images/I/61oUZ8CkwgL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/71BmhZJOLEL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Cotton lycra fabric",
+      "Corduroy texture"
+    ],
+    "description": "Made from cotton lycra corduroy, this slim-fit shirt offers soft stretch comfort with a structured feel. Designed for winter casual wear, it delivers a sharp silhouette suitable for daily use, outings, or relaxed occasions with all-day ease.",
+    "rating": 3.9,
+    "tags": [
+      "winter"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/Dolllar-Jackets-Stylish-Resistant-Reversible/dp/B0DJD5KD7D/?_encoding=UTF8&pd_rd_w=4s2Rl&content-id=amzn1.sym.03ba6a70-9210-4ca9-b5b4-787f30b2682d&pf_rd_p=03ba6a70-9210-4ca9-b5b4-787f30b2682d&pf_rd_r=8YESAVTS5RP59DJTA2HN&pd_rd_wg=y57pa&pd_rd_r=5d4f5e4a-17e0-4ba7-af1e-dcfcb2e8d37c&ref_=pd_hp_d_atf_dealz_4s&th=1&psc=1"
+    },
+    "featured": 0,
+    "active": 1,
+    "added_date": "2026-01-16",
+    "publish_at": "2026-01-16T10:25:00"
+  },  
       {
     "id": "shirts_or8rxs",
     "name": "Thomas Scott Men's Cotton Slim Fit Premium Corduroy Long Sleeve",
