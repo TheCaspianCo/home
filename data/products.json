@@ -1,33 +1,4 @@
 [
-  
-  {
-    "id": "jackets_k8d9zv",
-    "name": "Dollar Full Sleeves Bomber Jacket for Men | TPU Men's Standing Collar Lightweight Winter Jacket, Regular Fit",
-    "category": "jackets",
-    "sub_category": "Bomber Jackets",
-    "price": "₹901",
-    "images": [
-      "https://m.media-amazon.com/images/I/61oUZ8CkwgL._SY741_.jpg",
-      "https://m.media-amazon.com/images/I/71BmhZJOLEL._SY741_.jpg"
-    ],
-    "highlights": [
-      "Cotton lycra fabric",
-      "Corduroy texture"
-    ],
-    "description": "Made from cotton lycra corduroy, this slim-fit shirt offers soft stretch comfort with a structured feel. Designed for winter casual wear, it delivers a sharp silhouette suitable for daily use, outings, or relaxed occasions with all-day ease.",
-    "rating": 3.9,
-    "tags": [
-      "winter"
-    ],
-    "platform": {
-      "type": "amazon",
-      "link": "https://www.amazon.in/Dolllar-Jackets-Stylish-Resistant-Reversible/dp/B0DJD5KD7D/?_encoding=UTF8&pd_rd_w=4s2Rl&content-id=amzn1.sym.03ba6a70-9210-4ca9-b5b4-787f30b2682d&pf_rd_p=03ba6a70-9210-4ca9-b5b4-787f30b2682d&pf_rd_r=8YESAVTS5RP59DJTA2HN&pd_rd_wg=y57pa&pd_rd_r=5d4f5e4a-17e0-4ba7-af1e-dcfcb2e8d37c&ref_=pd_hp_d_atf_dealz_4s&th=1&psc=1"
-    },
-    "featured": 0,
-    "active": 1,
-    "added_date": "2026-01-16",
-    "publish_at": "2026-01-16T15:58:00"
-  },  
       {
     "id": "shirts_or8rxs",
     "name": "Thomas Scott Men's Cotton Slim Fit Premium Corduroy Long Sleeve",
@@ -57,7 +28,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/dp/B0CQ4Q8HBZ"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-15",
     "publish_at": "2026-01-15T18:15:00"
@@ -90,7 +61,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/Souled-Store-Cotton-Linen-Stripes/dp/B0FN16D377/"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-14",
     "publish_at": "2026-01-14T18:15:00"
@@ -126,7 +97,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/dp/B0CNPZ7JYG"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-13",
     "publish_at": "2026-01-13T18:06:00"
@@ -228,7 +199,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/sweatshirts/nobero/nobero-men-printed-hooded-sweatshirt/31044535/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-09",
     "publish_at": "2026-01-09T07:37:00"
@@ -294,7 +265,7 @@
       "type": "amazon",
       "link": "https://amzn.in/d/bgMBCdt"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-07",
     "publish_at": "2026-01-07T19:06:00"
@@ -373,7 +344,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/37438506?query=%7B%7D"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-06",
     "publish_at": "2026-01-06T04:55:00"
@@ -399,7 +370,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/TAGAS-Kangaroo-Drawstring-Sweatshirt-MH-8012-BEIGE-XXL/dp/B0DHS86LYN/ref=sr_1_5?s=apparel&sr=1-5&psc=1"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-05",
     "publish_at": "2026-01-05T04:52:00"
@@ -462,7 +433,7 @@
       "type": "amazon",
       "link": "https://amzn.in/d/2h41pxx"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-03",
     "publish_at": "2026-01-03T04:46:00"
@@ -639,7 +610,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/casual-shoes/roadster/the-roadster-lifestyle-co-men-white-sneakers/16925016/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2025-12-27",
     "publish_at": "2025-12-27T17:00:00"
@@ -673,7 +644,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/watches/timex/timex-men-black-brass-dial--black-bracelet-style-straps-analogue-watch-twtg80smu10/19172916/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2025-12-27",
     "publish_at": "2025-12-27T14:00:00"
@@ -708,7 +679,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/jackets/hrx+by+hrithik+roshan/hrx-by-hrithik-roshan-men-black-solid-active-bomber-jacket/4453295/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2025-12-27",
     "publish_at": "2025-12-27T11:00:00"
@@ -735,7 +706,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/jeans/highlander/highlander-men-slim-fit-light-fade-stretchable-jeans/30754533/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2025-12-27",
     "publish_at": "2025-12-27T10:30:00"
@@ -893,7 +864,7 @@
       "type": "amazon",
       "link": "https://amzn.in/d/hOOoy6i"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2025-12-18",
     "publish_at": "2025-12-18T04:00:00"
