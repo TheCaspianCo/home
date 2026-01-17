@@ -1,4 +1,37 @@
 [
+  {
+    "id": "tshirts_hmncdp",
+    "name": "The Souled Store The King Men and Boys Short Sleeves Round Neck Black Graphic Printed Cotton Oversized T-Shirts",
+    "category": "tshirts",
+    "sub_category": "Graphic Tees",
+    "price": "₹1,250",
+    "images": [
+      "https://m.media-amazon.com/images/I/61tTzy-EG2L._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/619TwnclW7L._SY741_.jpg"
+    ],
+    "highlights": [
+      "100% cotton",
+      "Oversized fit",
+      "Graphic print"
+    ],
+    "description": "Crafted from soft 100% cotton, this oversized graphic t-shirt offers breathable comfort and a relaxed drape. Designed for summer wear, it suits casual outings, daily use, or streetwear styling while delivering bold print appeal and all-day ease.",
+    "rating": 4.2,
+    "tags": [
+      "oversized t-shirt",
+      "100% cotton",
+      "graphic print tee",
+      "summer wear",
+      "streetwear style"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/Souled-Store-Oversized-T-Shirt-Shoulder/dp/B0DJ98NXSD"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-17",
+    "publish_at": "2026-01-17T18:15:00"
+  },
       {
     "id": "shirts_or8rxs",
     "name": "Thomas Scott Men's Cotton Slim Fit Premium Corduroy Long Sleeve",
