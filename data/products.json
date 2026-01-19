@@ -1,4 +1,38 @@
 [
+    {
+    "id": "jackets_cia3ry",
+    "name": "OneMile Men's Hyperflex Work Shacket - Jacket for men",
+    "category": "jackets",
+    "sub_category": "Denim Jackets",
+    "price": "₹3200",
+    "images": [
+      "https://m.media-amazon.com/images/I/61ZTaWgmGNL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/51Mu5YZ9zVL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Stretch blend fabric",
+      "Regular fit",
+      "All season wear",
+      "Lightweight build"
+    ],
+    "description": "Made from a polyester-rayon-elastane stretch blend, this regular-fit work shacket offers flexibility and lightweight comfort. Designed for all-season wear, it suits office days, travel, or smart-casual outings while staying wrinkle-free, breathable, and easy to maintain.",
+    "rating": 4.2,
+    "tags": [
+      "work shacket",
+      "regular fit",
+      "stretch fabric",
+      "lightweight jacket",
+      "wrinkle free"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/dp/B0DZC1VC98"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-19",
+    "publish_at": "2026-01-19T18:00:00"
+  },
   {
     "id": "tshirts_qx9txx",
     "name": "OFFICIAL MARVEL MERCHANDISE Men's Black Panther Mech Graphic Printed Oversized T-shirt",
