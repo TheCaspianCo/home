@@ -1,37 +1,35 @@
 [
-    {
-    "id": "jackets_cia3ry",
-    "name": "OneMile Men's Hyperflex Work Shacket - Jacket for men",
-    "category": "jackets",
-    "sub_category": "Denim Jackets",
-    "price": "₹3200",
+{
+    "id": "hoodies_mlnbvz",
+    "name": "Lymio Hoodie|| Sweatshirt for Unisex || Unisex Hoodie and Sweatshirt",
+    "category": "hoodies",
+    "sub_category": "Pullover Hoodies",
+    "price": "₹329",
     "images": [
-      "https://m.media-amazon.com/images/I/61ZTaWgmGNL._SY741_.jpg",
-      "https://m.media-amazon.com/images/I/51Mu5YZ9zVL._SY741_.jpg"
+      "https://m.media-amazon.com/images/I/71BZ58OS2oL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/81O7quD7RPL._SY741_.jpg"
     ],
     "highlights": [
-      "Stretch blend fabric",
-      "Regular fit",
-      "All season wear",
-      "Lightweight build"
+      "Polyester fabric",
+      "Regular fit"
     ],
-    "description": "Made from a polyester-rayon-elastane stretch blend, this regular-fit work shacket offers flexibility and lightweight comfort. Designed for all-season wear, it suits office days, travel, or smart-casual outings while staying wrinkle-free, breathable, and easy to maintain.",
-    "rating": 4.2,
+    "description": "Made from lightweight polyester fabric, this regular-fit hoodie offers easy warmth and everyday comfort. Designed for winter casual wear, it works well for daily use, travel, or relaxed outings while maintaining a clean, versatile look.",
+    "rating": 3.8,
     "tags": [
-      "work shacket",
+      "hooded sweatshirt",
       "regular fit",
-      "stretch fabric",
-      "lightweight jacket",
-      "wrinkle free"
+      "winter wear",
+      "polyester fabric",
+      "unisex hoodie"
     ],
     "platform": {
       "type": "amazon",
-      "link": "https://www.amazon.in/dp/B0DZC1VC98"
+      "link": "https://www.amazon.in/dp/B0DBDMR2J7"
     },
     "featured": 1,
-    "active": 0,
+    "active": 1,
     "added_date": "2026-01-19",
-    "publish_at": "2026-01-19T18:00:00"
+    "publish_at": "2026-01-19T05:00:00"
   },
   {
     "id": "tshirts_qx9txx",
