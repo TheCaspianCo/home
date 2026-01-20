@@ -1,4 +1,38 @@
 [
+  {
+    "id": "tshirts_n3nnrq",
+    "name": "The Souled Store Souled Army Men and Boys Round Neck Blue Embroidered Cotton Oversized Full Sleeve T-Shirts",
+    "category": "tshirts",
+    "sub_category": "Graphic Tees",
+    "price": "₹1,599",
+    "images": [
+      "https://m.media-amazon.com/images/I/610SeT5zAGL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/61Y3984KL0L._SY741_.jpg"
+    ],
+    "highlights": [
+      "100% cotton",
+      "Oversized fit",
+      "Full sleeve",
+      "Casual wear"
+    ],
+    "description": "Crafted from soft 100% cotton, this oversized full-sleeve t-shirt offers breathable comfort with a relaxed drape. Designed for casual wear, it works well for daily outings or street styling while delivering a clean look with subtle embroidered detailing.",
+    "rating": 4.5,
+    "tags": [
+      "oversized t-shirt",
+      "100% cotton",
+      "embroidered tee",
+      "full sleeve",
+      "casual wear"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/Souled-Store-Embroidered-Oversized-T-Shirts/dp/B0DV92VMV8/"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-20",
+    "publish_at": "2026-01-20T07:15:00"
+  },
 {
     "id": "hoodies_mlnbvz",
     "name": "Lymio Hoodie|| Sweatshirt for Unisex || Unisex Hoodie and Sweatshirt",
