@@ -1,4 +1,40 @@
 [
+    {
+    "id": "shirts_le66ri",
+    "name": "The Indian Garage Co Men Tartan Checked Casual Shirt",
+    "category": "shirts",
+    "sub_category": "Checked Shirts",
+    "price": "₹594",
+    "images": [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/20921886/2022/12/3/578e78e3-c7ba-4b6f-88d8-8af3db09da891670067445227-The-Indian-Garage-Co-Men-Shirts-9561670067444692-1.jpg",
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/20921886/2022/12/3/e0f79912-fefd-4c5e-bdcd-6e571123e2521670067445195-The-Indian-Garage-Co-Men-Shirts-9561670067444692-4.jpg",
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/20921886/2022/12/3/4d6a5634-4992-4d0c-bebf-b0402ac1e5821670067445161-The-Indian-Garage-Co-Men-Shirts-9561670067444692-6.jpg"
+    ],
+    "highlights": [
+      "Cotton blend fabric",
+      "Regular fit",
+      "All season wear",
+      "Tartan checks",
+      "Casual styling"
+    ],
+    "description": "Made from a comfortable cotton blend, this regular-fit tartan checked shirt offers breathable ease and everyday comfort. Designed for all-season casual wear, it pairs well with jeans or chinos for office days, outings, or relaxed weekend styling.",
+    "rating": 4.3,
+    "tags": [
+      "checked shirt",
+      "regular fit",
+      "cotton blend",
+      "full sleeve shirt",
+      "casual wear"
+    ],
+    "platform": {
+      "type": "myntra",
+      "link": "https://www.myntra.com/shirts/the+indian+garage+co/the-indian-garage-co-men-tartan-checked-casual-shirt/20921886/buy"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-22",
+    "publish_at": "2026-01-22T18:00:00"
+  },
       {
     "id": "jackets_cia3ry",
     "name": "OneMile Men's Hyperflex Work Shacket - Jacket for men",
