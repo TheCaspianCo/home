@@ -722,14 +722,16 @@
                   id="category"
                   onchange="updateSubCategory(); generateProductId();"
                 >
-                  <option value="">Select Category</option>
+                  <option value="" selected>Select Category</option>
                   <option value="kurtas">Kurtas</option>
                   <option value="tops_shirts">Tops & Shirts</option>
+                  <option value="shirts">Shirts</option>
                   <option value="dresses">Dresses</option>
                   <option value="bottom_wear">Bottom Wear</option>
                   <option value="hoodies">Hoodies</option>
                   <option value="tshirts">T-Shirts</option>
                   <option value="accessories">Accessories</option>
+
 
                 </select>
               </div>
@@ -961,10 +963,21 @@ No products to display</pre
   kurtas: [
     "Daily Wear",
     "Festive Wear",
+    "Long Kurtis",
+    "Short Kurtis",
+    "Ready Made Kurtis",
   ],
 
   tops_shirts: [
     "Casual",
+  ],
+
+  shirts: [
+    "Formal Shirts",
+    "Casual Shirts",
+    "Printed Shirts",
+    "Oversized Shirts",
+    "Denim Shirts",
   ],
 
   dresses: [
