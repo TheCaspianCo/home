@@ -1,0 +1,23 @@
+{
+  "hero_banner": {
+    "enabled": 0,
+    "auto_slide": 1,
+    "slide_interval": 4000,
+    "slides": [
+      {
+        "image": "https://home--caspianofficial.replit.app/12.png",
+        "heading": "Honest outfit picks. Simplified.",
+        "subtext": "No fake reviews. Just value.",
+        "cta_text": "Explore Picks",
+        "cta_link": "/home/picks/"
+      },
+      {
+        "image": "/home/data/1.png",
+        "heading": "Winter Essentials",
+        "subtext": "Built for warmth & comfort",
+        "cta_text": "View Hoodies",
+        "cta_link": "/home/category/?category=hoodie"
+      }
+    ]
+  }
+}

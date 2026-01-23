@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Featured deals and curated picks - The Caspian Co"
+    />
+    <title>Deals - The Caspian Co</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="/home/assets/logo/favicon.ico" />
+    <link rel="stylesheet" href="/home/css/style.css" />
+
+    <style>
+      .deals-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 60px 20px;
+        text-align: center;
+        color: white;
+      }
+
+      .deals-header h1 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .deals-header p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.95;
+      }
+
+      .deals-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .deals-content {
+        padding: 40px 20px;
+      }
+
+      .results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .results-count {
+        font-size: 16px;
+        color: var(--text-secondary);
+      }
+
+      .results-count strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .sort-select {
+        padding: 8px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 14px;
+        background: var(--bg-primary);
+        cursor: pointer;
+      }
+
+      .active-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .active-filter-tag {
+        padding: 6px 12px;
+        background: var(--accent-color);
+        color: white;
+        border-radius: 20px;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .active-filter-tag button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        line-height: 1;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .clear-filters-btn {
+        padding: 6px 12px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .filter-close-btn {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+      }
+
+      .featured-badge-large {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        padding: 6px 14px;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      @media (max-width: 768px) {
+        .deals-header h1 {
+          font-size: 32px;
+        }
+
+        .deals-header p {
+          font-size: 16px;
+        }
+
+        .results-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .filter-close-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="/home" class="logo"><img src="/home/image.png" style="width: 170px"/></a>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products..."
+          />
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass" style="color: #000000"></i
+          ></span>
+        </div>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/home/picks/">Picks</a></li>
+            <li>
+              <a href="/home/deals/" style="color: var(--accent-color)">Deals</a>
+            </li>
+            <li class="categories-dropdown">
+              <span class="dropdown-trigger" onclick="toggleDropdown()"
+                >Categories ▾</span
+              >
+              <div class="dropdown-menu" id="categoriesDropdown"></div>
+            </li>
+            <li><a href="/home/about/">About</a></li>
+          </ul>
+        </nav>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="deals-header">
+      <div class="deals-badge">⭐ FEATURED DEALS</div>
+      <h1>Handpicked Favorites</h1>
+      <p>
+        Our top recommendations. Carefully selected products we stand behind.
+      </p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="deals-content">
+      <div class="container">
+        <div class="filters-container">
+          <!-- Filters Sidebar -->
+          <aside class="filters-sidebar" id="filtersSidebar">
+            <button class="filter-close-btn" onclick="toggleFilters()">
+              ×
+            </button>
+
+            <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 20px">
+              Filters
+            </h3>
+
+            <!-- Category Filters -->
+            <div class="filter-section" id="categoryFilters">
+              <div class="filter-title">Categories</div>
+              <!-- Will be populated dynamically -->
+            </div>
+
+            <!-- Tag Filters -->
+            <div class="filter-section" id="tagFilters">
+              <div class="filter-title">Tags</div>
+              <!-- Will be populated dynamically -->
+            </div>
+          </aside>
+
+          <!-- Products Section -->
+          <main class="products-main">
+            <!-- Mobile Filter Toggle -->
+            <button class="filter-mobile-toggle" onclick="toggleFilters()">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #ffffff"
+              ></i>
+              Filters
+            </button>
+
+            <!-- Active Filters -->
+            <div id="activeFilters" style="display: none">
+              <!-- Active filters will be shown here -->
+            </div>
+
+            <!-- Results Header -->
+            <div class="results-header">
+              <div class="results-count" id="resultsCount">
+                Loading deals...
+              </div>
+              <select
+                class="sort-select"
+                id="sortSelect"
+                onchange="applySorting()"
+              >
+                <option value="newest">Newest First</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="product-grid" id="productsGrid">
+              <div class="loading">Loading featured products...</div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="/home/picks/">Picks</a></li>
+            <li><a href="/home/deals/">Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/home/about/">About Us</a></li>
+            <li><a href="/home/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/home/privacy/">Privacy Policy</a></li>
+            <li><a href="/home/affiliatedisclosure/">Affiliate Disclosure</a></li>
+            <li><a href="/home/terms/">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul>
+            <li>
+              <a href="https://instagram.com/the.caspian.co" target="_blank"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="yearfooter"></span> The Caspian Co. All rights reserved.</p>
+      </div>
+      </footer>
+      <script>
+      document.getElementById("yearfooter").textContent = new Date().getFullYear();
+      </script>
+
+    <script src="/home/js/data.js"></script>
+    <script src="/home/js/deals.js"></script>
+  </body>
+</html>

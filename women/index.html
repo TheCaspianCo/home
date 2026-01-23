@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <meta
+      name="description"
+      content="The Caspian Co. curates honest women’s fashion picks—t-shirts, hoodies, streetwear & essentials that deliver real value. No hype. No fake reviews."/>
+    
+    <meta name="keywords" content="women's fashion, affordable women's clothing, honest fashion reviews, women's streetwear India, women's fashion essentials">
+
+<!-- Open Graph (Social Sharing) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Caspian Co." />
+<meta property="og:title" content="Honest women’s Fashion Picks That Are Worth It" />
+<meta property="og:description" content="We cut through fake reviews and hype to recomwomend women’s clothing that actually delivers on quality, fit, and value." />
+<meta property="og:url" content="https://thecaspianco.github.io/home/women/women" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Caspian Co. | Honest women’s Fashion Picks" />
+<meta name="twitter:description" content="Affordable women’s clothing curated for quality, comfort, and long-term value. No hype. No fake reviews." />
+
+
+      <title>The Caspian Co. - Premium Fashion Picks</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/home/women/assets/logo/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/home/women/css/style.css" />
+
+    <!-- Google Analytics (Optional - Enable by adding your GA4 ID) -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGJNQZ48N0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguwoments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JGJNQZ48N0');
+</script>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="/home" class="logo"
+          ><img src="/home/women/image.png" style="width: 170px"
+        /></a>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products..."
+          />
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass" style="color: #000000"></i
+          ></span>
+        </div>
+
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/home/women/picks/">Picks</a></li>
+            <li><a href="/home/women/deals/">Deals</a></li>
+            <li class="categories-dropdown">
+              <span class="dropdown-trigger" onclick="toggleDropdown()">
+                Categories ▾
+              </span>
+              <div class="dropdown-womenu" id="categoriesDropdown">
+                <!-- Categories will be loaded dynamically -->
+              </div>
+            </li>
+            <li><a href="/home/women/about/">About</a></li>
+          </ul>
+        </nav>
+
+        <button
+          class="mobile-womenu-toggle"
+          onclick="toggleMobilewomenu()"
+          aria-label="Toggle womenu"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+      <!-- Hero slider will be loaded dynamically -->
+    </section>
+
+    <!-- Recently Added Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Recently Added</h2>
+        <div class="product-scroll" id="recentlyAdded">
+          <div class="loading">Loading products...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Sections -->
+    <div id="categorySections">
+      <!-- Category sections will be loaded dynamically -->
+    </div>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+      <div class="container">
+        <h2>No fake reviews. No paid hype. Just value.</h2>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="/home/women/picks/">Picks</a></li>
+            <li><a href="/home/women/deals/">Deals</a></li>
+            <li><a href="/home/women/category/?category=hoodies">Hoodies</a></li>
+            <li><a href="/home/women/category/?category=tshirts">T-Shirts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/home/women/about/">About Us</a></li>
+            <li><a href="/home/women/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/home/women/privacy/">Privacy Policy</a></li>
+            <li><a href="/home/women/affiliatedisclosure/">Affiliate Disclosure</a></li>
+            <li><a href="/home/women/terms/">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <ul>
+            <li>
+              <a href="https://instagram.com/the.caspian.co" target="_blank"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="yearfooter"></span> The Caspian Co. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      docuwoment.getElewomentById("yearfooter").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- JavaScript -->
+    <script src="/home/women/js/data.js"></script>
+    <script src="/home/women/js/home.js"></script>
+  </body>
+</html>
