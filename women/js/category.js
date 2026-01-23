@@ -498,7 +498,7 @@
         : `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect fill='%23e9ecef' width='80' height='80'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23999' font-size='12'%3ENo Image%3C/text%3E%3C/svg%3E`;
 
     return `
-      <div class="product-card" onclick="window.location.href='/home/product/?id=${product.id}'">
+      <div class="product-card" onclick="window.location.href='/home/women/product/?id=${product.id}'">
         <div class="product-image-wrapper">
           <img src="${firstImage}" alt="${product.name}" class="product-image" loading="lazy">
           ${product.featured === 1 ? '<span class="product-badge">Featured</span>' : ""}
@@ -530,7 +530,7 @@
     dropdown.innerHTML = categories
       .map(
         (cat) => `
-      <a href="/home/category/?category=${cat.id}" ${cat.id === categoryId ? 'style="color: var(--accent-color); font-weight: 600;"' : ""}>
+      <a href="/home/women/category/?category=${cat.id}" ${cat.id === categoryId ? 'style="color: var(--accent-color); font-weight: 600;"' : ""}>
         ${cat.label}
       </a>
     `,
@@ -552,7 +552,7 @@
         const query = e.target.value.trim();
 
         if (query.length >= 2) {
-          window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
+          window.location.href = `/home/women/picks/?search=${encodeURIComponent(query)}`;
         }
       }, 500);
     });
@@ -569,7 +569,7 @@
     document.getElementById("productsGrid").innerHTML = `
       <div class="error-message" style="grid-column: 1 / -1;">
         <h3>${message}</h3>
-        <a href="/home" class="btn btn-primary" style="margin-top: 16px;">← Back to Home</a>
+        <a href="/home/women" class="btn btn-primary" style="margin-top: 16px;">← Back to Home</a>
       </div>
     `;
 

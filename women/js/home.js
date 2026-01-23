@@ -137,7 +137,7 @@
     }
 
     dropdown.innerHTML = categories.map(cat => `
-      <a href="/home/category/?category=${cat.id}">${cat.label}</a>
+      <a href="/home/women/category/?category=${cat.id}">${cat.label}</a>
     `).join('');
   }
 
@@ -182,7 +182,7 @@
           <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
               <h2 class="section-title" style="margin-bottom: 0;">${category.label}</h2>
-              <a href="/home/category/?category=${category.id}" class="btn btn-secondary">View all</a>
+              <a href="/home/women/category/?category=${category.id}" class="btn btn-secondary">View all</a>
             </div>
             <div class="product-grid">
               ${products.map(product => renderProductCard(product)).join('')}
@@ -199,11 +199,11 @@
    * Render product card
    */
   function renderProductCard(product) {
-    const firstImage = product.images && product.images[0] ? product.images[0] : '/home/assets/placeholder.jpg';
+    const firstImage = product.images && product.images[0] ? product.images[0] : '/home/women/assets/placeholder.jpg';
     const displayCategory = CaspianData.formatDisplayText(product.category);
     
     return `
-      <div class="product-card" onclick="window.location.href='/home/product/?id=${product.id}'">
+      <div class="product-card" onclick="window.location.href='/home/women/product/?id=${product.id}'">
         <div class="product-image-wrapper">
           <img src="${firstImage}" alt="${product.name}" class="product-image" loading="lazy">
           ${product.featured === 1 ? '<span class="product-badge">Featured</span>' : ''}
@@ -235,7 +235,7 @@
         
         if (query.length >= 2) {
           // Redirect to picks page with search query
-          window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
+          window.location.href = `/home/women/picks/?search=${encodeURIComponent(query)}`;
         }
       }, 500);
     });
@@ -244,7 +244,7 @@
       if (e.key === 'Enter') {
         const query = e.target.value.trim();
         if (query.length >= 2) {
-          window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
+          window.location.href = `/home/women/picks/?search=${encodeURIComponent(query)}`;
         }
       }
     });

@@ -328,7 +328,7 @@
         <div class="empty-state" style="grid-column: 1 / -1;">
           <h3>No Deals Available</h3>
           <p>Check back soon for our featured picks!</p>
-          <a href="/home/picks/" class="btn btn-primary" style="margin-top: 16px;">
+          <a href="/home/women/picks/" class="btn btn-primary" style="margin-top: 16px;">
             Browse All Products
           </a>
         </div>
@@ -365,7 +365,7 @@
     const displayCategory = CaspianData.formatDisplayText(product.category);
 
     return `
-      <div class="product-card" onclick="window.location.href='/home/product/?id=${product.id}'">
+      <div class="product-card" onclick="window.location.href='/home/women/product/?id=${product.id}'">
         <div class="product-image-wrapper">
           <img src="${firstImage}" alt="${product.name}" class="product-image" loading="lazy">
           <span class="featured-badge-large">Featured</span>
@@ -397,7 +397,7 @@
     dropdown.innerHTML = categories
       .map(
         (cat) => `
-      <a href="/home/category/?category=${cat.id}">${cat.label}</a>
+      <a href="/home/women/category/?category=${cat.id}">${cat.label}</a>
     `,
       )
       .join("");
@@ -417,7 +417,7 @@
         const query = e.target.value.trim();
 
         if (query.length >= 2) {
-          window.location.href = `/home/picks/?search=${encodeURIComponent(query)}`;
+          window.location.href = `/home/women/picks/?search=${encodeURIComponent(query)}`;
         }
       }, 500);
     });
