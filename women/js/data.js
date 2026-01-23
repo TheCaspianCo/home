@@ -57,7 +57,7 @@ const CaspianData = (function () {
     try {
       // Load all JSON files in parallel
       const [productsRes, categoriesRes, homeRes] = await Promise.all([
-        fetch("/home/women/data/products.json"),
+        fetch("/home/women/data/womenproducts.json"),
         fetch("/home/women/data/categories.json"),
         fetch("/home/women/data/home.json"),
       ]);
