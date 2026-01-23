@@ -6,21 +6,21 @@
    
     <meta
       name="description"
-      content="The Caspian Co. curates honest women’s fashion picks—t-shirts, hoodies, streetwear & essentials that deliver real value. No hype. No fake reviews."/>
+      content="The Caspian Co. curates honest women's fashion picks—t-shirts, hoodies, streetwear & essentials that deliver real value. No hype. No fake reviews."/>
     
-    <meta name="keywords" content="women's fashion, affordable women's clothing, honest fashion reviews, women's streetwear India, women's fashion essentials">
+    <meta name="keywords" content="men's fashion, affordable men's clothing, honest fashion reviews, men's streetwear India, men's fashion essentials">
 
 <!-- Open Graph (Social Sharing) -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Caspian Co." />
-<meta property="og:title" content="Honest women’s Fashion Picks That Are Worth It" />
-<meta property="og:description" content="We cut through fake reviews and hype to recomwomend women’s clothing that actually delivers on quality, fit, and value." />
-<meta property="og:url" content="https://thecaspianco.github.io/home/women" />
+<meta property="og:title" content="Honest women's Fashion Picks That Are Worth It" />
+<meta property="og:description" content="We cut through fake reviews and hype to recommend women's clothing that actually delivers on quality, fit, and value." />
+<meta property="og:url" content="https://thecaspianco.github.io/home/" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Caspian Co. | Honest women’s Fashion Picks" />
-<meta name="twitter:description" content="Affordable women’s clothing curated for quality, comfort, and long-term value. No hype. No fake reviews." />
+<meta name="twitter:title" content="The Caspian Co. | Honest women's Fashion Picks" />
+<meta name="twitter:description" content="Affordable women's clothing curated for quality, comfort, and long-term value. No hype. No fake reviews." />
 
 
       <title>The Caspian Co. - Premium Fashion Picks</title>
@@ -39,7 +39,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGJNQZ48N0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguwoments);}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-JGJNQZ48N0');
@@ -49,7 +49,7 @@
     <!-- Header & Navigation -->
     <header class="header">
       <div class="nav-container">
-        <a href="/home" class="logo"
+        <a href="/home/women" class="logo"
           ><img src="/home/image.png" style="width: 170px"
         /></a>
 
@@ -72,7 +72,7 @@
               <span class="dropdown-trigger" onclick="toggleDropdown()">
                 Categories ▾
               </span>
-              <div class="dropdown-womenu" id="categoriesDropdown">
+              <div class="dropdown-menu" id="categoriesDropdown">
                 <!-- Categories will be loaded dynamically -->
               </div>
             </li>
@@ -81,9 +81,9 @@
         </nav>
 
         <button
-          class="mobile-womenu-toggle"
-          onclick="toggleMobilewomenu()"
-          aria-label="Toggle womenu"
+          class="mobile-menu-toggle"
+          onclick="toggleMobileMenu()"
+          aria-label="Toggle menu"
         >
           ☰
         </button>
@@ -164,7 +164,7 @@
       </div>
     </footer>
     <script>
-      docuwoment.getElewomentById("yearfooter").textContent = new Date().getFullYear();
+      document.getElementById("yearfooter").textContent = new Date().getFullYear();
     </script>
 
     <!-- JavaScript -->
