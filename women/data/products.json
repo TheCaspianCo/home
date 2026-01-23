@@ -1,40 +1,5 @@
 [
-   {
-    "id": "tshirts_ldcv1g",
-    "name": "Bewakoof® Men's White Warrior King Graphic Printed Oversized T-shirt",
-    "category": "tshirts",
-    "sub_category": "Graphic Tees",
-    "price": "₹399",
-    "images": [
-      "https://images.bewakoof.com/t1080/men-s-white-warrior-king-graphic-printed-oversized-t-shirt-521402-1752062131-4.jpg",
-      "https://images.bewakoof.com/t1080/men-s-white-warrior-king-graphic-printed-oversized-t-shirt-521402-1738330464-1.jpg",
-      "https://images.bewakoof.com/t1080/men-s-white-warrior-king-graphic-printed-oversized-t-shirt-521402-1752062135-5.jpg"
-    ],
-    "highlights": [
-      "100% cotton",
-      "Oversized fit",
-      "Graphic print",
-      "Street casual use"
-    ],
-    "description": "Made from premium dense 100% cotton single jersey, this oversized graphic t-shirt offers breathable comfort and a relaxed drape. Ideal for summer casual wear, it suits daily outings, street styling, or laid-back looks with effortless ease.",
-    "rating": 4.6,
-    "tags": [
-      "oversized t-shirt",
-      "100% cotton",
-      "graphic print tee",
-      "summer wear",
-      "streetwear style"
-    ],
-    "platform": {
-      "type": "other",
-      "link": "https://www.bewakoof.com/p/warrior-king-oversized-fit-t-shirt"
-    },
-    "featured": 1,
-    "active": 1,
-    "added_date": "2026-01-23",
-    "publish_at": "2026-01-23T18:00:00"
-  },
-    {
+      {
     "id": "shirts_le66ri",
     "name": "The Indian Garage Co Men Tartan Checked Casual Shirt",
     "category": "shirts",
