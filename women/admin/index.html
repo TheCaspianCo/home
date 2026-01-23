@@ -688,8 +688,8 @@
               <input
                 type="text"
                 id="jsonFilename"
-                placeholder="../data/products.json"
-                value="../data/products.json"
+                placeholder="/home/women/data/products.json"
+                value="/home/women/data/products.json"
                 readonly
               />
               <button class="btn-small btn-secondary" disabled>Locked</button>
@@ -723,13 +723,14 @@
                   onchange="updateSubCategory(); generateProductId();"
                 >
                   <option value="">Select Category</option>
+                  <option value="kurtas">Kurtas</option>
+                  <option value="tops_shirts">Tops & Shirts</option>
+                  <option value="dresses">Dresses</option>
+                  <option value="bottom_wear">Bottom Wear</option>
                   <option value="hoodies">Hoodies</option>
                   <option value="tshirts">T-Shirts</option>
-                  <option value="shirts">Shirts</option>
-                  <option value="jeans">Jeans</option>
-                  <option value="jackets">Jackets</option>
-                  <option value="shoes">Shoes</option>
                   <option value="accessories">Accessories</option>
+
                 </select>
               </div>
               <div class="form-group">
@@ -956,51 +957,48 @@ No products to display</pre
       const DEFAULT_JSON_FILENAME = "/home/women/data/products.json";
 
       // ⚠️ SUB CATEGORIES MAPPING - Add your custom sub categories here ⚠️
-      const SUB_CATEGORIES = {
-        hoodies: [
-          "Pullover Hoodies",
-          "Zip Hoodies",
-          "Oversized Hoodies",
-          "Graphic Hoodies",
-          "Plain Hoodies",
-        ],
-        tshirts: [
-          "Graphic Tees",
-          "Plain Tees",
-          "Polo T-Shirts",
-          "V-Neck Tees",
-          "Round Neck Tees",
-        ],
-        jeans: [
-          "Slim Fit Jeans",
-          "Regular Fit Jeans",
-          "Skinny Jeans",
-          "Bootcut Jeans",
-          "Straight Fit Jeans",
-        ],
-        jackets: [
-          "Bomber Jackets",
-          "Denim Jackets",
-          "Leather Jackets",
-          "Winter Jackets",
-          "Sports Jackets",
-        ],
-        shirts: [
-          "Checked Shirts",
-          "Solid Shirts",
-          "Printed Shirts",
-          "Striped Shirts",
-          "Denim Shirts",
-        ],
-        shoes: [
-          "Sneakers",
-          "Formal Shoes",
-          "Casual Shoes",
-          "Sports Shoes",
-          "Loafers",
-        ],
-        accessories: ["Bags", "Belts", "Watches", "Sunglasses", "Caps"],
-      };
+     const SUB_CATEGORIES = {
+  kurtas: [
+    "Daily Wear",
+    "Festive Wear",
+  ],
+
+  tops_shirts: [
+    "Casual",
+  ],
+
+  dresses: [
+    "Casual",
+  ],
+
+  bottom_wear: [
+    "Jeans",
+    "Trousers",
+    "Palazzos",
+  ],
+
+  accessories: [
+    "Handbags",
+    "Minimal Jewelry",
+  ],
+
+  hoodies: [
+    "Pullover Hoodies",
+    "Zip Hoodies",
+    "Cropped Hoodies",
+    "Oversized Hoodies",
+    "Graphic Hoodies",
+  ],
+
+  tshirts: [
+    "Graphic Tees",
+    "Plain Tees",
+    "Crop T-Shirts",
+    "Oversized T-Shirts",
+    "V-Neck Tees",
+  ],
+};
+
 
       let config = {
         jsonFilename: DEFAULT_JSON_FILENAME,
