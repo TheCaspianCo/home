@@ -1,4 +1,73 @@
 [
+    {
+    "id": "shirts_grbg4c",
+    "name": "The Souled Store Cotton Linen Checks",
+    "category": "shirts",
+    "sub_category": "Checked Shirts",
+    "price": "₹1,399",
+    "images": [
+      "https://m.media-amazon.com/images/I/61DDyatz8iL._SY741_.jpg",
+      "https://m.media-amazon.com/images/I/61mHVyzV6tL._SY741_.jpg"
+    ],
+    "highlights": [
+      "Cotton linen blend",
+      "Regular fit",
+      "Summer wear",
+      "Office casual use"
+    ],
+    "description": "Crafted from an 85% cotton and 15% linen blend, this regular-fit plaid shirt offers breathable comfort and lightweight ease. Designed for summer wear, it works well for office days or casual outings while maintaining a sharp, easy-to-style look.",
+    "rating": 4.3,
+    "tags": [
+      "cotton linen shirt",
+      "regular fit",
+      "plaid shirt",
+      "summer wear",
+      "breathable fabric"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/dp/B0FV919V4Q"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-25",
+    "publish_at": "2026-01-25T07:15:00"
+  },
+  {
+    "id": "hoodies_0t5bu5",
+    "name": "Nobero Zipper Hoodies for Man Stylish",
+    "category": "hoodies",
+    "sub_category": "Zip Hoodies",
+    "price": "₹1,399",
+    "images": [
+      "https://m.media-amazon.com/images/I/51qIgFkMWIL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51qIgFkMWIL._SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61kW6kfqxjL._SY741_.jpg"
+    ],
+    "highlights": [
+      "280 GSM fleece",
+      "Cotton blend fabric",
+      "Regular fit",
+      "Casual layering"
+    ],
+    "description": "Crafted from 280 GSM cotton blend fleece, this regular-fit zipper hoodie delivers warmth and soft comfort. Designed for winter wear, it layers easily for casual outings, gym sessions, or everyday use while maintaining a clean, durable finish.",
+    "rating": 3.9,
+    "tags": [
+      "zipper hoodie",
+      "regular fit",
+      "winter wear",
+      "280 gsm fleece",
+      "cotton blend fleece"
+    ],
+    "platform": {
+      "type": "amazon",
+      "link": "https://www.amazon.in/dp/B0DH8CKHJD"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-24",
+    "publish_at": "2026-01-24T08:15:00"
+  },
       {
     "id": "hoodies_0t5bu5",
     "name": "Nobero Zipper Hoodies for Man Stylish",
