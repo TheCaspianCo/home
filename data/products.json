@@ -1,5 +1,40 @@
 [
     {
+    "id": "tshirts_2v7t9e",
+    "name": "NOBERO Men Graphic Printed Oversized Cotton T-shirt",
+    "category": "tshirts",
+    "sub_category": "Graphic Tees",
+    "price": "₹499",
+    "images": [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/26858778/2024/1/10/7e2f0070-cce3-4946-8d61-a3fed27da3dd1704887182576NOBEROMenBlackTypographyPrintedAppliqueT-shirt1.jpg",
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/26858778/2024/1/10/8cdf2dc9-6e8e-481a-9307-8c120cb237d51704887182590NOBEROMenBlackTypographyPrintedAppliqueT-shirt3.jpg"
+    ],
+    "highlights": [
+      "100% cotton",
+      "Oversized fit",
+      "Summer wear",
+      "Graphic print",
+      "Casual street use"
+    ],
+    "description": "Made from soft knitted 100% cotton, this oversized graphic t-shirt offers breathable comfort and a relaxed silhouette. Designed for summer casual wear, it works well for daily outings or street styling while keeping movement easy and effortless.",
+    "rating": 4.5,
+    "tags": [
+      "oversized t-shirt",
+      "100% cotton",
+      "graphic print tee",
+      "summer wear",
+      "streetwear style"
+    ],
+    "platform": {
+      "type": "myntra",
+      "link": "https://www.myntra.com/tshirts/nobero/nobero-men-graphic-printed-oversized-cotton-t-shirt/26858778/buy"
+    },
+    "featured": 1,
+    "active": 1,
+    "added_date": "2026-01-27",
+    "publish_at": "2026-01-27T18:15:00"
+  },
+    {
     "id": "shirts_grbg4c",
     "name": "The Souled Store Cotton Linen Checks",
     "category": "shirts",
@@ -98,7 +133,7 @@
       "type": "other",
       "link": "https://www.bewakoof.com/p/warrior-king-oversized-fit-t-shirt"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-23",
     "publish_at": "2026-01-23T18:00:00"
@@ -134,7 +169,7 @@
       "type": "myntra",
       "link": "https://www.myntra.com/shirts/the+indian+garage+co/the-indian-garage-co-men-tartan-checked-casual-shirt/20921886/buy"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-22",
     "publish_at": "2026-01-22T18:00:00"
@@ -168,7 +203,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/dp/B0DZC1VC98"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-21",
     "publish_at": "2026-01-21T12:00:00"
@@ -202,7 +237,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/Souled-Store-Embroidered-Oversized-T-Shirts/dp/B0DV92VMV8/"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-20",
     "publish_at": "2026-01-20T18:15:00"
@@ -234,7 +269,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/dp/B0DBDMR2J7"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-19",
     "publish_at": "2026-01-19T05:00:00"
@@ -267,7 +302,7 @@
       "type": "other",
       "link": "https://www.bewakoof.com/p/mens-black-panther-mech-graphic-printed-oversized-t-shirt"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-18",
     "publish_at": "2026-01-18T16:00:00"
@@ -300,7 +335,7 @@
       "type": "amazon",
       "link": "https://www.amazon.in/Souled-Store-Oversized-T-Shirt-Shoulder/dp/B0DJ98NXSD"
     },
-    "featured": 1,
+    "featured": 0,
     "active": 1,
     "added_date": "2026-01-17",
     "publish_at": "2026-01-17T18:15:00"
