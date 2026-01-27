@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Form Editor - The Caspian Co.</title>
+    <title>Women's Product  - The Caspian Co.</title>
     <style>
       * {
         margin: 0;
@@ -666,22 +666,6 @@
         padding: 40px 20px;
         font-size: 14px;
       }
-
-      .json-mode-toggle {
-        display: flex;
-        gap: 5px;
-        margin-bottom: 10px;
-      }
-
-      .json-mode-toggle button {
-        flex: 1;
-        padding: 8px;
-        font-size: 11px;
-      }
-
-      .json-mode-toggle button.active {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
     </style>
   </head>
 
@@ -704,8 +688,8 @@
               <input
                 type="text"
                 id="jsonFilename"
-                placeholder="../data/products.json"
-                value="../data/products.json"
+                placeholder="/home/women/data/womenproducts.json"
+                value="/home/women/data/womenproducts.json"
                 readonly
               />
               <button class="btn-small btn-secondary" disabled>Locked</button>
@@ -738,14 +722,17 @@
                   id="category"
                   onchange="updateSubCategory(); generateProductId();"
                 >
-                  <option value="">Select Category</option>
+                  <option value="" selected>Select Category</option>
+                  <option value="kurtas">Kurtas</option>
+                  <option value="tops_shirts">Tops & Shirts</option>
+                  <option value="shirts">Shirts</option>
+                  <option value="dresses">Dresses</option>
+                  <option value="bottom_wear">Bottom Wear</option>
                   <option value="hoodies">Hoodies</option>
                   <option value="tshirts">T-Shirts</option>
-                  <option value="shirts">Shirts</option>
-                  <option value="jeans">Jeans</option>
-                  <option value="jackets">Jackets</option>
-                  <option value="shoes">Shoes</option>
                   <option value="accessories">Accessories</option>
+
+
                 </select>
               </div>
               <div class="form-group">
@@ -861,8 +848,8 @@
                 <input type="date" id="addedDate" />
               </div>
               <div class="form-group">
-                <label>Publish At * (24-hour format)</label>
-                <input type="datetime-local" id="publishAt" step="1" />
+                <label>Publish At *</label>
+                <input type="datetime-local" id="publishAt" />
               </div>
             </div>
 
@@ -915,15 +902,6 @@
           <div class="config-section">
             <h3>📋 JSON Output</h3>
 
-            <div class="json-mode-toggle">
-              <button class="btn-small active" id="btnNewProduct" onclick="setJsonMode('new')">
-                New Product Only
-              </button>
-              <button class="btn-small btn-secondary" id="btnAllProducts" onclick="setJsonMode('all')">
-                All Products
-              </button>
-            </div>
-
             <div
               style="
                 background: #1e1e1e;
@@ -938,13 +916,15 @@
                 id="jsonOutput"
                 style="
                   color: #d4d4d4;
-                  font-family: 'Courier New', monospace;
+                  font-family: &quot;Courier New&quot;, monospace;
                   font-size: 12px;
                   margin: 0;
                   white-space: pre-wrap;
                   word-wrap: break-word;
                 "
-              >No products to display</pre>
+              >
+No products to display</pre
+              >
             </div>
 
             <div
@@ -966,8 +946,8 @@
               </button>
             </div>
 
-            <p style="margin-top: 10px; font-size: 12px; color: #666" id="jsonModeDescription">
-              Showing only the newly added product
+            <p style="margin-top: 10px; font-size: 12px; color: #666">
+              Click "Update JSON" to generate current products data
             </p>
           </div>
         </div>
@@ -976,54 +956,62 @@
 
     <script>
       // ⚠️ HARDCODED JSON FILE PATH ⚠️
-      const DEFAULT_JSON_FILENAME = "/home/data/products.json";
+      const DEFAULT_JSON_FILENAME = "/home/women/data/womenproducts.json";
 
       // ⚠️ SUB CATEGORIES MAPPING - Add your custom sub categories here ⚠️
-      const SUB_CATEGORIES = {
-        hoodies: [
-          "Pullover Hoodies",
-          "Zip Hoodies",
-          "Oversized Hoodies",
-          "Graphic Hoodies",
-          "Plain Hoodies",
-        ],
-        tshirts: [
-          "Graphic Tees",
-          "Plain Tees",
-          "Polo T-Shirts",
-          "V-Neck Tees",
-          "Round Neck Tees",
-        ],
-        jeans: [
-          "Slim Fit Jeans",
-          "Regular Fit Jeans",
-          "Skinny Jeans",
-          "Bootcut Jeans",
-          "Straight Fit Jeans",
-        ],
-        jackets: [
-          "Bomber Jackets",
-          "Denim Jackets",
-          "Leather Jackets",
-          "Winter Jackets",
-          "Sports Jackets",
-        ],
-        shirts: [
-          "Checked Shirts",
-          "Solid Shirts",
-          "Printed Shirts",
-          "Striped Shirts",
-          "Denim Shirts",
-        ],
-        shoes: [
-          "Sneakers",
-          "Formal Shoes",
-          "Casual Shoes",
-          "Sports Shoes",
-          "Loafers",
-        ],
-        accessories: ["Bags", "Belts", "Watches", "Sunglasses", "Caps"],
-      };
+     const SUB_CATEGORIES = {
+  kurtas: [
+    "Daily Wear",
+    "Festive Wear",
+    "Long Kurtis",
+    "Short Kurtis",
+    "Ready Made Kurtis",
+  ],
+
+  tops_shirts: [
+    "Casual",
+  ],
+
+  shirts: [
+    "Formal Shirts",
+    "Casual Shirts",
+    "Printed Shirts",
+    "Oversized Shirts",
+    "Denim Shirts",
+  ],
+
+  dresses: [
+    "Casual",
+  ],
+
+  bottom_wear: [
+    "Jeans",
+    "Trousers",
+    "Palazzos",
+  ],
+
+  accessories: [
+    "Handbags",
+    "Minimal Jewelry",
+  ],
+
+  hoodies: [
+    "Pullover Hoodies",
+    "Zip Hoodies",
+    "Cropped Hoodies",
+    "Oversized Hoodies",
+    "Graphic Hoodies",
+  ],
+
+  tshirts: [
+    "Graphic Tees",
+    "Plain Tees",
+    "Crop T-Shirts",
+    "Oversized T-Shirts",
+    "V-Neck Tees",
+  ],
+};
+
 
       let config = {
         jsonFilename: DEFAULT_JSON_FILENAME,
@@ -1032,8 +1020,6 @@
       let products = [];
       let filteredProducts = [];
       let selectedProductIndex = -1;
-      let lastAddedProduct = null;
-      let jsonMode = 'new'; // 'new' or 'all'
 
       window.onload = function () {
         loadProducts();
@@ -1193,7 +1179,7 @@
 
         if (product.publish_at) {
           const dt = new Date(product.publish_at);
-          const formatted = dt.toISOString().slice(0, 19);
+          const formatted = dt.toISOString().slice(0, 16);
           document.getElementById("publishAt").value = formatted;
         }
 
@@ -1323,8 +1309,6 @@
 
         const addedDate = document.getElementById("addedDate").value;
         const publishAtValue = document.getElementById("publishAt").value;
-        
-        // Convert to 24-hour format ISO string
         const publishAt = publishAtValue
           ? new Date(publishAtValue).toISOString().slice(0, 19)
           : "";
@@ -1385,7 +1369,6 @@
         }
 
         products.push(product);
-        lastAddedProduct = product; // Store the last added product
 
         // Sort products: recently added first
         products.sort((a, b) => {
@@ -1504,20 +1487,9 @@
 
       function setDefaultDates() {
         const today = new Date().toISOString().split("T")[0];
-        const now = new Date();
-        
-        // Format for datetime-local input in 24-hour format
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        
-        const datetimeLocal = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
-        
+        const now = new Date().toISOString().slice(0, 16);
         document.getElementById("addedDate").value = today;
-        document.getElementById("publishAt").value = datetimeLocal;
+        document.getElementById("publishAt").value = now;
       }
 
       function updateProductCount() {
@@ -1534,53 +1506,23 @@
       `;
       }
 
-      function setJsonMode(mode) {
-        jsonMode = mode;
-        
-        // Update button states
-        const btnNew = document.getElementById('btnNewProduct');
-        const btnAll = document.getElementById('btnAllProducts');
-        
-        if (mode === 'new') {
-          btnNew.className = 'btn-small active';
-          btnAll.className = 'btn-small btn-secondary';
-          document.getElementById('jsonModeDescription').textContent = 'Showing only the newly added product';
-        } else {
-          btnNew.className = 'btn-small btn-secondary';
-          btnAll.className = 'btn-small active';
-          document.getElementById('jsonModeDescription').textContent = 'Showing all products in the list';
-        }
-        
-        updateJsonOutput();
-      }
-
       function updateJsonOutput() {
         const jsonOutput = document.getElementById("jsonOutput");
 
-        if (jsonMode === 'new') {
-          // Show only the last added product
-          if (lastAddedProduct) {
-            const jsonString = JSON.stringify(lastAddedProduct, null, 2);
-            jsonOutput.textContent = jsonString;
-          } else {
-            jsonOutput.textContent = "No product has been added yet";
-          }
-        } else {
-          // Show all products
-          if (products.length === 0) {
-            jsonOutput.textContent = "No products to display";
-          } else {
-            const jsonString = JSON.stringify(products, null, 2);
-            jsonOutput.textContent = jsonString;
-          }
+        if (products.length === 0) {
+          jsonOutput.textContent = "No products to display";
+          return;
         }
+
+        const jsonString = JSON.stringify(products, null, 2);
+        jsonOutput.textContent = jsonString;
       }
 
       async function copyJsonCode() {
         const jsonOutput = document.getElementById("jsonOutput");
         const jsonText = jsonOutput.textContent;
 
-        if (jsonText === "No products to display" || jsonText === "No product has been added yet") {
+        if (jsonText === "No products to display") {
           showStatus("⚠ No JSON data to copy", "warning");
           return;
         }
