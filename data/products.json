@@ -1,4 +1,37 @@
 [
+  {
+  "id": "tshirts_o3nbd4",
+  "name": "The Souled Store Colourblock: Olive Grove Men and Boys Full Sleeve Collared Neck Cotton Regular Fit Breathable Lightweight Summer Rugby Polos",
+  "category": "tshirts",
+  "sub_category": "Polo T-Shirts",
+  "price": "₹1000",
+  "images": [
+    "https://m.media-amazon.com/images/I/61UkKsUF1zL._SY741_.jpg",
+    "https://m.media-amazon.com/images/I/51fs9waDPsL._SY741_.jpg"
+  ],
+  "highlights": [
+    "100% cotton",
+    "Regular fit",
+    "Casual street use"
+  ],
+  "description": "Crafted from breathable 100% cotton, this regular-fit rugby polo offers lightweight comfort for warm weather. Designed for summer wear, it works well for casual outings or street styling while delivering a clean look with a bold colourblock finish.",
+  "rating": 4.2,
+  "tags": [
+    "cotton polo",
+    "regular fit",
+    "color block",
+    "summer wear",
+    "breathable fabric"
+  ],
+  "platform": {
+    "type": "amazon",
+    "link": "https://www.amazon.in/Souled-Store-Colourblock-Breathable-Lightweight/dp/B0FHKNPJ8M/"
+  },
+  "featured": 1,
+  "active": 1,
+  "added_date": "2026-01-29",
+  "publish_at": "2026-01-29T12:45:00"
+},
     {
     "id": "tshirts_2v7t9e",
     "name": "NOBERO Men Graphic Printed Oversized Cotton T-shirt",
